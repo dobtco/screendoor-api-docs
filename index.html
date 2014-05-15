@@ -1,0 +1,25 @@
+---
+layout: default
+---
+
+<nav id='sidebar'>
+	{% include nav.html %}
+</nav>
+
+<section id='content'>
+  {% for post in site.posts %}
+    {% if post.category == null %}
+      {% include post.html %}
+    {% endif %}
+  {% endfor %}
+
+  {% for category in site.categories %}
+    {% for posts in category %}
+      {% for post in posts %}
+        {% if post.title %}
+          {% include post.html %}
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+  {% endfor %}
+</section>
