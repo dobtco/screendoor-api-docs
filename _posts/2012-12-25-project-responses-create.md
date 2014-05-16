@@ -19,7 +19,7 @@ This method allows the user to create a response.
   },
   "skip_validation": false,
   "status": "Starred",
-  "labels": "Great,Needs more information"
+  "labels": ["Great", "Needs more information"]
 }
 ```
 
