@@ -12,7 +12,14 @@ This method allows the user to create a response.
 ### Request
 ```
 {
-  'foo': 'bar'
+  "response_fields": {
+    "1": "Vivian Cronin",
+    "2": "emmanuelle@goyette.co.uk",
+    "3": "New application for your job on Startuply"
+  },
+  "skip_validation": false,
+  "status": "Starred",
+  "labels": "Great,Needs more information"
 }
 ```
 
