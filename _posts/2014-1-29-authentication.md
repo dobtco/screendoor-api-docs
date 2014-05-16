@@ -1,8 +1,10 @@
 ---
-title: 'Authentication'
+title: 'Versioning'
 
 layout: nil
 ---
 
-- Authentication is handled by the `api_key` URL parameter.
-- Don't have an API key? Get one in Screendoor -> Settings -> API Keys.
+The current API version is **0**.
+
+- Specify the API version by setting a `Version: 0` HTTP header
+- Alternatively, use the `?v=0` URL parameter
