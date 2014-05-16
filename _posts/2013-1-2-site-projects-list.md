@@ -11,13 +11,4 @@ List projects for the specified site.
 
 ### Response
 
-```
-[
-  {
-    'id': 1
-  },
-  {
-    'id': 2
-  }
-]
-```
+```{% include resources/projects.json %}```

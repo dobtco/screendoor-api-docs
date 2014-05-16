@@ -11,8 +11,4 @@ Get the specified project.
 
 ### Response
 
-```
-{
-  'id': 1
-}
-```
+```{% include resources/project.json %}```

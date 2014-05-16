@@ -18,8 +18,4 @@ This method allows the user to create a response.
 
 ### Response
 
-```
-{
-  'id': 1
-}
-```
+```{% include resources/response.json %}```

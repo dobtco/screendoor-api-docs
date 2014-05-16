@@ -164,6 +164,7 @@ pre,
 samp {
     font-family: monospace, serif;
     font-size: 1em;
+    white-space: pre-wrap;
 }
 
 /**
@@ -441,7 +442,7 @@ code {
 #sidebar {
   background: #191919;
   color: #fff;
-  float: left;  
+  float: left;
   height: 100%;
   overflow: auto;
   position: fixed;
@@ -635,5 +636,5 @@ code {
 #content .body p > code {
   display: block;
   padding: 15px;
-  white-space: pre;
+  white-space: pre-wrap;
 }

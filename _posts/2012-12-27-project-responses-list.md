@@ -11,13 +11,4 @@ List responses for the specified project.
 
 ### Response
 
-```
-[
-  {
-    'id': 1
-  },
-  {
-    'id': 2
-  },
-]
-```
+```{% include resources/responses.json %}```

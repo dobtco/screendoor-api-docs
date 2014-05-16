@@ -11,8 +11,4 @@ Get the specified response.
 
 ### Response
 
-```
-{
-  'id': 1
-}
-```
+```{% include resources/response.json %}```
