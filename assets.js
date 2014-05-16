@@ -3852,7 +3852,7 @@ if ( !jQuery.support.submitBubbles ) {
 			});
 			// return undefined since we don't need an event listener
 		},
-		
+
 		postDispatch: function( event ) {
 			// If form was submitted by the user, bubble the event up the tree
 			if ( event._submit_bubble ) {
@@ -9628,12 +9628,12 @@ $.expr[':'].Contains = function(a,i,m){
  */
 function Filter(list) {
     this.el = list;
-    
+
     // Filter input
     var form = $('<form>').attr({ 'action':'#' });
     var input = $('<input>').attr({ 'type':'text', 'placeholder':'Filter by keyword' });
     $(form).append(input).prependTo(this.el);
-    
+
     // Filter function
     var self = this;
     $(input).change(function () {
@@ -9644,7 +9644,7 @@ function Filter(list) {
         } else {
             $(self.el).find('li').show();
         }
-        
+
         // Hide titles when group is empty
         $(self.el).find('ul').each(function () {
             if (!$(this).find('li:visible').length) {
@@ -9657,7 +9657,7 @@ function Filter(list) {
         return false;
     })
     .keyup( function () { $(this).change(); });
-    
+
     return this;
 }
 });
@@ -9696,18 +9696,13 @@ $('#sidebar a').each(function () {
     });
 });
 
-// Hide all/Show all links
-var show = $('<a class=\'control show\'>Show all</a>');
-show.click(function () {
-  $('#content article:not(".active") > a').trigger('click');    
-});
-$('#content').prepend(show);
+$('.control.show').click(function(){
+  $('#content article:not(".active") > a').trigger('click');
+})
 
-var hide = $('<a class=\'control hide\'>Hide all</a>');
-hide.click(function () {
-  $('#content article.active > a').trigger('click');    
-});
-$('#content').prepend(hide);
+$('.control.hide').click(function(){
+  $('#content article.active > a').trigger('click');
+})
 
 // Making our navigation sticky
 new Filter($('#sidebar > ul'));
