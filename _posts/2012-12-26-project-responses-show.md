@@ -7,7 +7,14 @@ type: 'GET'
 layout: nil
 ---
 
-Get the specified response.
+Get the specified response. Note the "response_format" URL parameter, which can be either "raw", "text", or "html".
+
+### Request
+```
+{
+  "response_format": "raw"
+}
+```
 
 ### Response
 
