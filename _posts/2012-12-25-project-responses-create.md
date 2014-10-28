@@ -17,7 +17,9 @@ This method allows the user to create a response.
     "2": "emmanuelle@goyette.co.uk",
     "3": "New application for your job on Startuply"
   },
-  "skip_validation": false,
+  "skip_email_confirmation": true, // default: false
+  "skip_notifications": true, // default: false
+  "skip_validation": true, // default: false
   "status": "Starred",
   "labels": ["Great", "Needs more information"]
 }
