@@ -7,9 +7,11 @@ language_tabs:
 toc_footers:
   - <a href='https://screendoor.dobt.co'>Go to Screendoor &rarr;</a>
 
-includes: 
+includes:
   - overview
   - responses
+  - projects
+  - project-forms
 
 search: true
 ---
