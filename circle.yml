@@ -1,0 +1,11 @@
+test:
+  override:
+    - script/cibuild
+
+deployment:
+  production:
+    branch: master
+    commands:
+      - git config --global user.email "ops@dobt.co"
+      - git config --global user.name "CircleCI"
+      - grunt deploy:production
