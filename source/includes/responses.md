@@ -56,13 +56,13 @@ curl https://screendoor.dobt.co/api/projects/2/responses?v=0&api_key=d9763djh127
 
 ### Options
 
-| Parameter | Default | Description |
-| --- | --- | --- |
-| skip_email_confirmation | false |  |
-| skip_notifications | false |  |
-| skip_validation | false |  |
-| status | *set inside Screendoor* |  |
-| labels | [] | |
+| Parameter | Type | Default | Description |
+| --- | --- | --- | --- |
+| skip_email_confirmation | boolean | false | If `false`, the respondent receives an email confirming submission of the response.  |
+| skip_notifications | boolean | false | If `false`, administrators receive notification that the response was submitted. |
+| skip_validation | boolean | false | If `false`, validations errors are raised if the response is invalid. |
+| status | string | *set inside Screendoor* | The only possible values are statutes set within the Screendoor project. |
+| labels | array | [] | Possible values in the array: label names already used in the project and new labels names. |
 
 ## Retrieve a single response
 
@@ -156,11 +156,11 @@ curl https://screendoor.dobt.co/api/projects/2/responses/2?v=0&api_key=d9763djh1
 
 ### Options
 
-| Parameter | Default | Description |
-| --- | --- | --- |
-| force_validation | false | |
-| status | |  |
-| labels | | |
+| Parameter | Type | Default | Description |
+| --- | --- | --- | --- |
+| force_validation | boolean | false | If `false`, validations errors are raised if the response is invalid. |
+| status | string | *set inside Screendoor* | The only possible values are statutes set within the Screendoor project.  |
+| labels | array | [] | Possible values in the array: label names already used in the project and new label names. |
 
 ## Delete a response
 
