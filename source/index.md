@@ -9,8 +9,8 @@ toc_footers:
 
 includes:
   - overview
-  - responses
   - projects
+  - responses
   - project-forms
 
 search: true
