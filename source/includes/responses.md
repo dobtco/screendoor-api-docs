@@ -29,7 +29,7 @@ curl https://screendoor.dobt.co/api/projects/2/responses?v=0&api_key=d9763djh127
 {
   "id": 3,
   "sequential_id": 3,
-  "project_id": 1,
+  "project_id": 2,
   "pretty_id": "ykylz0kz",
   "submitted_at": "2014-05-07T19:19:43.230Z",
   "responses": {
@@ -76,7 +76,7 @@ curl https://screendoor.dobt.co/api/projects/2/responses/3?v=0&api_key=d9763djh1
 {
   "id": 3,
   "sequential_id": 3,
-  "project_id": 1,
+  "project_id": 2,
   "pretty_id": "ykylz0kz",
   "submitted_at": "2014-05-07T19:19:43.230Z",
   "responses": {
@@ -127,9 +127,9 @@ curl https://screendoor.dobt.co/api/projects/2/responses/2?v=0&api_key=d9763djh1
 
 # Example Response
 {
-  "id": 3,
+  "id": 2,
   "sequential_id": 3,
-  "project_id": 1,
+  "project_id": 2,
   "pretty_id": "ykylz0kz",
   "submitted_at": "2014-05-07T19:19:43.230Z",
   "responses": {
@@ -193,7 +193,7 @@ curl https://screendoor.dobt.co/api/site/1/projects/2/responses?v=0&api_key=d976
   {
     "id": 3,
     "sequential_id": 3,
-    "project_id": 1,
+    "project_id": 2,
     "pretty_id": "ykylz0kz",
     "submitted_at": "2014-05-07T19:19:43.230Z",
     "responses": {

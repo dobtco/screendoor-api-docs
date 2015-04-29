@@ -46,7 +46,7 @@ Updates the specified response field by assigning values to the keys of the `Res
 
 ```shell
 # Example Request
-curl https://screendoor.dobt.co/api/projects/2/response_fields/5?v=0&api_key=d9763djh1274 \
+curl https://screendoor.dobt.co/api/projects/2/response_fields/235?v=0&api_key=d9763djh1274 \
   -H 'Content-Type: application/json' \
   -X PUT \
   -d '
@@ -86,7 +86,7 @@ Batch-updates the form for a project. Any response fields that don't exist will 
 
 ```shell
 # Example Request
-curl https://screendoor.dobt.co/api/projects/2/response_fields/5/batch?v=0&api_key=d9763djh1274 \
+curl https://screendoor.dobt.co/api/projects/2/response_fields/235/batch?v=0&api_key=d9763djh1274 \
   -H 'Content-Type: application/json' \
   -X POST \
   -d '
