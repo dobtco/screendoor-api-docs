@@ -1,5 +1,21 @@
 # Projects
 
+## List a site's projects
+
+You can see a list of the projects belonging to a specific site.
+
+```shell
+curl https://screendoor.dobt.co/api/sites/1/projects?v=0&api_key=d9763djh1274
+
+# Example Response
+[
+  <%= partial 'resources/project.json' %>
+]
+```
+
+### HTTP Request
+`GET /sites/:site_id/projects`
+
 ## Create a project
 
 Creates a new project.
@@ -76,20 +92,3 @@ Status: 204 No Content
 ### HTTP Request
 
 `DELETE /sites/:site_id/projects/:project_id`
-
-## List a site's projects
-
-You can see a list of the projects belonging to a specific site.
-
-```shell
-curl https://screendoor.dobt.co/api/sites/1/projects?v=0&api_key=d9763djh1274
-
-# Example Response
-[
-  <%= partial 'resources/project.json' %>
-]
-```
-
-### HTTP Request
-`GET /sites/:site_id/projects`
-

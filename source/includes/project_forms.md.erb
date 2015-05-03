@@ -1,5 +1,22 @@
 # Project forms
 
+## List a project's response fields
+
+Returns a list of response fields to a project with the given `project_id`.
+
+```shell
+curl https://screendoor.dobt.co/api/projects/2/response_fields?v=0&api_key=d9763djh1274
+
+# Example Response
+[
+  <%= partial 'resources/response_field.json' %>
+]
+```
+
+### HTTP Request
+
+`GET /projects/:project_id/response_fields`
+
 ## Add a response field
 
 Adds a response field to a project's form.
@@ -34,7 +51,7 @@ curl https://screendoor.dobt.co/api/projects/2/response_fields/235?v=0&api_key=d
   -d '
 {
   "field_type": "text",
-  "label": "Your Strategy
+  "label": "Your Strategy"
 }
 '
 
@@ -51,7 +68,7 @@ curl https://screendoor.dobt.co/api/projects/2/response_fields/235?v=0&api_key=d
 Batch-updates the form for a project. Any response fields that don't exist will be added, and any existing fields that aren't present in the request body will be destroyed.
 
 ```shell
-curl https://screendoor.dobt.co/api/projects/2/response_fields/235/batch?v=0&api_key=d9763djh1274 \
+curl https://screendoor.dobt.co/api/projects/2/response_fields/batch?v=0&api_key=d9763djh1274 \
   -H 'Content-Type: application/json' \
   -X POST \
   -d '
@@ -67,7 +84,7 @@ curl https://screendoor.dobt.co/api/projects/2/response_fields/235/batch?v=0&api
       "required": true,
       "blind": false,
       "admin_only": false,
-      "field_type": "paragraph",
+      "field_type": "paragraph"
     },
     {
       "label": "Previous Work",
@@ -76,7 +93,7 @@ curl https://screendoor.dobt.co/api/projects/2/response_fields/235/batch?v=0&api
         "description": "What qualifies you to work on this project?"
       },
       "required": true,
-      "field_type": "paragraph",
+      "field_type": "paragraph"
     }
   ]
 }
@@ -130,20 +147,3 @@ Status: 204 No Content
 ### HTTP Request
 
 `DELETE /projects/:project_id/response_fields/:response_field_id`
-
-## List a project's response fields
-
-Returns a list of response fields to a project with the given `project_id`.
-
-```shell
-curl https://screendoor.dobt.co/api/projects/2/response_fields?v=0&api_key=d9763djh1274
-
-# Example Response
-[
-  <%= partial 'resources/response_field.json' %>
-]
-```
-
-### HTTP Request
-
-`GET /projects/:project_id/response_fields`

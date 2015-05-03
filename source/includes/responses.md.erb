@@ -1,5 +1,22 @@
 # Responses
 
+## List a project's responses
+
+Returns a list of responses to a specified project.
+
+```shell
+curl https://screendoor.dobt.co/api/projects/2/responses?v=0&api_key=d9763djh1274
+
+# Example Response
+[
+  <%= partial 'resources/response.json' %>
+]
+```
+
+### HTTP Request
+
+`GET /projects/:project_id/responses`
+
 ## Create a response
 
 Creates a response to the specified project.
@@ -112,20 +129,3 @@ Status: 204 No Content
 ### HTTP Request
 
 `DELETE /projects/:project_id/responses/:response_id`
-
-## List a project's responses
-
-Returns a list of responses to a specified project.
-
-```shell
-curl https://screendoor.dobt.co/api/site/1/projects/2/responses?v=0&api_key=d9763djh1274
-
-# Example Response
-[
-  <%= partial 'resources/response.json' %>
-]
-```
-
-### HTTP Request
-
-`GET /projects/:project_id/responses`
