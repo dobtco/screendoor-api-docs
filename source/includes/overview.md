@@ -12,7 +12,6 @@ This is our API endpoint: https://screendoor.dobt.co/api
 ## Pagination
 
 ```shell
-# Example Request
 curl --include https://screendoor.dobt.co/api/sites/1/projects?page=5&v=0&api_key=d9763djh1274
 
 # Example Response
