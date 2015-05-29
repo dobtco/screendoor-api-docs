@@ -59,6 +59,29 @@ curl https://screendoor.dobt.co/api/projects/2/responses?v=0&api_key=d9763djh127
 | status | string | *set inside Screendoor* | The only possible values are statutes set within the Screendoor project. |
 | labels | array | [] | Possible values in the array: label names already used in the project and new labels names. |
 
+### RESPONSE FIELD INPUTS
+
+In a `Response` hash, field inputs reside in a key-value pair whose key is `responses`. The value is a hash, within which are the individual field inputs, as laid out below:
+
+| Input | Format | Notes |
+| --- | --- | --- |
+| Text | `"35": "foo"` | |
+| Paragraph | `"36": "All she wanted was everything: To see every form, read every response, to ask every question; to understand advanced evaluation, to understand project teams."` | |
+| Checkboxes | `"37": { "0": "on", "1": false }` | If an option is selected, the value is `"0"`. If an option is left unselected, the value is `false`.  |
+| Multiple Choice | `"38": "Choice #1"` | |
+| Dropdown | `"39": "Choice #2"` | If the blank option is selected, the value is `""`.|
+| Date | `"40": { "month": "2", "day": "15", "year": "2015"}` | |
+| Time | `"41": { "am_pm": "PM", "hours": "6", "minutes": "01", "seconds": "30"}` | |
+| Phone | `"42": "4151234567"` | |
+| Email | `"43": "foo@bar.com"` | |
+| Address | `"44": { "country": "United States", "street": "123 Main St.", "city": "Pleasantville", "state": "Illinois"}` | |
+| Table | `"45": { "0": ["first row", "1"], "1": ["second row", "2"]}` | |
+| Numeric | `"46": "123"` | |
+| Website | `"47": "http://www.google.com"` | |
+| Price | `"48": { "dollars": "12", "cents": "99"}` | |
+| File | | |
+| Map Marker | `"50": { "lat": "40.7700118", "lng": "-73.9800453"}` | |
+
 ## Retrieve a single response
 
 Retrieves a response with the given `:response_id`.
