@@ -47,7 +47,7 @@
       <span class="s2">"1"</span>: <span class="s2">"Vivian Cronin"</span>,
       <span class="s2">"2"</span>: <span class="s2">"emmanuelle@goyette.co.uk"</span>,
       <span class="s2">"3"</span>: <span class="s2">"New application for your job on Startuply"</span>,
-      <span class="s2">"4"</span>: <span class="s2">"To Whom it May Concern: I am very interested in working at your company. The widgets you make are AMAZING, and I would love to be a part of it. I have many skills, but the most important ones are my abilities to collect information from people, screen filter it effectively, select the right options, and follow through with the right options quickly. Plus, I even know what to do with the options we did not select. Adding me to your team means saving time, saving money and getting back to doing the work you love doing.</span><span class="se">\n</span><span class="s2">"</span>,
+      <span class="s2">"4"</span>: <span class="s2">"To Whom it May Concern: I am very interested in working at your company. The widgets you make are AMAZING, and I would love to be a part of it. I have many skills, but the most important ones are my abilities to collect information from people, screen it effectively, select the right options, and follow through with the right options quickly. Plus, I even know what to do with the options we did not select. Adding me to your team means saving time, saving money and getting back to doing the work you love doing.</span><span class="se">\n</span><span class="s2">"</span>,
       <span class="s2">"5"</span>: <span class="s2">"3"</span>
   <span class="o">}</span>,
   <span class="s2">"rating_aggregates"</span>: <span class="o">{}</span>,
@@ -80,7 +80,7 @@
     "1": "Vivian Cronin",
     "2": "emmanuelle@goyette.co.uk",
     "3": "New application for your job on Startuply",
-    "4": "To Whom it May Concern: I am very interested in working at your company. The widgets you make are AMAZING, and I would love to be a part of it. I have many skills, but the most important ones are my abilities to collect information from people, screen filter it effectively, select the right options, and follow through with the right options quickly. Plus, I even know what to do with the options we did not select. Adding me to your team means saving time, saving money and getting back to doing the work you love doing.\n"
+    "4": "To Whom it May Concern: I am very interested in working at your company. The widgets you make are AMAZING, and I would love to be a part of it. I have many skills, but the most important ones are my abilities to collect information from people, screen it effectively, select the right options, and follow through with the right options quickly. Plus, I even know what to do with the options we did not select. Adding me to your team means saving time, saving money and getting back to doing the work you love doing.\n"
   },
   "skip_email_confirmation": true,
   "skip_notifications": true,
@@ -101,7 +101,7 @@
       <span class="s2">"1"</span>: <span class="s2">"Vivian Cronin"</span>,
       <span class="s2">"2"</span>: <span class="s2">"emmanuelle@goyette.co.uk"</span>,
       <span class="s2">"3"</span>: <span class="s2">"New application for your job on Startuply"</span>,
-      <span class="s2">"4"</span>: <span class="s2">"To Whom it May Concern: I am very interested in working at your company. The widgets you make are AMAZING, and I would love to be a part of it. I have many skills, but the most important ones are my abilities to collect information from people, screen filter it effectively, select the right options, and follow through with the right options quickly. Plus, I even know what to do with the options we did not select. Adding me to your team means saving time, saving money and getting back to doing the work you love doing.</span><span class="se">\n</span><span class="s2">"</span>,
+      <span class="s2">"4"</span>: <span class="s2">"To Whom it May Concern: I am very interested in working at your company. The widgets you make are AMAZING, and I would love to be a part of it. I have many skills, but the most important ones are my abilities to collect information from people, screen it effectively, select the right options, and follow through with the right options quickly. Plus, I even know what to do with the options we did not select. Adding me to your team means saving time, saving money and getting back to doing the work you love doing.</span><span class="se">\n</span><span class="s2">"</span>,
       <span class="s2">"5"</span>: <span class="s2">"3"</span>
   <span class="o">}</span>,
   <span class="s2">"rating_aggregates"</span>: <span class="o">{}</span>,
@@ -131,6 +131,12 @@
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>response_fields</td>
+<td>hash</td>
+<td>{}</td>
+<td>See <a href="#spec-for-the-response-hash">the spec</a> below</td>
+</tr>
 <tr>
 <td>skip_email_confirmation</td>
 <td>boolean</td>
@@ -179,7 +185,7 @@
       <span class="s2">"1"</span>: <span class="s2">"Vivian Cronin"</span>,
       <span class="s2">"2"</span>: <span class="s2">"emmanuelle@goyette.co.uk"</span>,
       <span class="s2">"3"</span>: <span class="s2">"New application for your job on Startuply"</span>,
-      <span class="s2">"4"</span>: <span class="s2">"To Whom it May Concern: I am very interested in working at your company. The widgets you make are AMAZING, and I would love to be a part of it. I have many skills, but the most important ones are my abilities to collect information from people, screen filter it effectively, select the right options, and follow through with the right options quickly. Plus, I even know what to do with the options we did not select. Adding me to your team means saving time, saving money and getting back to doing the work you love doing.</span><span class="se">\n</span><span class="s2">"</span>,
+      <span class="s2">"4"</span>: <span class="s2">"To Whom it May Concern: I am very interested in working at your company. The widgets you make are AMAZING, and I would love to be a part of it. I have many skills, but the most important ones are my abilities to collect information from people, screen it effectively, select the right options, and follow through with the right options quickly. Plus, I even know what to do with the options we did not select. Adding me to your team means saving time, saving money and getting back to doing the work you love doing.</span><span class="se">\n</span><span class="s2">"</span>,
       <span class="s2">"5"</span>: <span class="s2">"3"</span>
   <span class="o">}</span>,
   <span class="s2">"rating_aggregates"</span>: <span class="o">{}</span>,
@@ -224,7 +230,8 @@
   -d <span class="s1">'
 {
   "response_fields": {
-    "1": "Veronica Cronin"
+    "1": "Veronica Cronin",
+    "2": { "0": "on", "1": false }
   },
   "status": "Accepted"
 }
@@ -241,7 +248,7 @@
       <span class="s2">"1"</span>: <span class="s2">"Vivian Cronin"</span>,
       <span class="s2">"2"</span>: <span class="s2">"emmanuelle@goyette.co.uk"</span>,
       <span class="s2">"3"</span>: <span class="s2">"New application for your job on Startuply"</span>,
-      <span class="s2">"4"</span>: <span class="s2">"To Whom it May Concern: I am very interested in working at your company. The widgets you make are AMAZING, and I would love to be a part of it. I have many skills, but the most important ones are my abilities to collect information from people, screen filter it effectively, select the right options, and follow through with the right options quickly. Plus, I even know what to do with the options we did not select. Adding me to your team means saving time, saving money and getting back to doing the work you love doing.</span><span class="se">\n</span><span class="s2">"</span>,
+      <span class="s2">"4"</span>: <span class="s2">"To Whom it May Concern: I am very interested in working at your company. The widgets you make are AMAZING, and I would love to be a part of it. I have many skills, but the most important ones are my abilities to collect information from people, screen it effectively, select the right options, and follow through with the right options quickly. Plus, I even know what to do with the options we did not select. Adding me to your team means saving time, saving money and getting back to doing the work you love doing.</span><span class="se">\n</span><span class="s2">"</span>,
       <span class="s2">"5"</span>: <span class="s2">"3"</span>
   <span class="o">}</span>,
   <span class="s2">"rating_aggregates"</span>: <span class="o">{}</span>,
@@ -271,6 +278,12 @@
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>response_fields</td>
+<td>hash</td>
+<td>{}</td>
+<td>See <a href="#spec-for-the-response-hash">the spec</a> below</td>
+</tr>
 <tr>
 <td>force_validation</td>
 <td>boolean</td>
@@ -305,6 +318,93 @@ Status: 204 No Content
 <h3 id="http-request">HTTP Request</h3>
 
 <p><code class="prettyprint">DELETE /projects/:project_id/responses/:response_id</code></p>
+
+<h2 id="spec-for-the-response-hash">Spec for the response hash</h2>
+
+<p>In order to encode a response to a Screendoor form, you must use the format defined below. In each key-value pair, the key is the ID of your response field, and the value depends on the type of that field. See <a href="#update-a-response">an example</a> of a complete payload above.</p>
+
+<table><thead>
+<tr>
+<th>Field type</th>
+<th>Format</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Text</td>
+<td><code class="prettyprint">&quot;foo&quot;</code></td>
+</tr>
+<tr>
+<td>Paragraph</td>
+<td><code class="prettyprint">&quot;I have many skills, but the most important ones are my abilities to collect information from people, screen it effectively, select the right options, and follow through with the right options quickly.&quot;</code></td>
+</tr>
+<tr>
+<td>Checkboxes</td>
+<td><code class="prettyprint">{ &quot;0&quot;: &quot;on&quot;, &quot;1&quot;: false }</code> <br><br>or with &ldquo;other&rdquo; selected:<br><br> <code class="prettyprint">{ &quot;0&quot;: false, &quot;1&quot;: &quot;on&quot;, &quot;other_checkbox&quot;: &quot;on&quot;, &quot;other&quot;: &quot;Something else&quot; }</code></td>
+</tr>
+<tr>
+<td>Multiple Choice</td>
+<td><code class="prettyprint">&quot;Choice #1&quot;</code></td>
+</tr>
+<tr>
+<td>Dropdown</td>
+<td><code class="prettyprint">&quot;Choice #2&quot;</code></td>
+</tr>
+<tr>
+<td>Date</td>
+<td><code class="prettyprint">{ &quot;month&quot;: &quot;2&quot;, &quot;day&quot;: &quot;15&quot;, &quot;year&quot;: &quot;2015&quot;}</code></td>
+</tr>
+<tr>
+<td>Time</td>
+<td><code class="prettyprint">{ &quot;am_pm&quot;: &quot;PM&quot;, &quot;hours&quot;: &quot;6&quot;, &quot;minutes&quot;: &quot;01&quot;, &quot;seconds&quot;: &quot;30&quot;}</code></td>
+</tr>
+<tr>
+<td>Phone</td>
+<td><code class="prettyprint">&quot;4151234567&quot;</code></td>
+</tr>
+<tr>
+<td>Email</td>
+<td><code class="prettyprint">&quot;foo@bar.com&quot;</code></td>
+</tr>
+<tr>
+<td>Address</td>
+<td><code class="prettyprint">{ &quot;country&quot;: &quot;US&quot;, &quot;street&quot;: &quot;123 Main St.&quot;, &quot;city&quot;: &quot;Pleasantville&quot;, &quot;state&quot;: &quot;Illinois&quot; }</code></td>
+</tr>
+<tr>
+<td>Table</td>
+<td><code class="prettyprint">{ &quot;0&quot;: [&quot;col 1 row 1&quot;, &quot;col 1 row 2&quot;], &quot;1&quot;: [&quot;col 2 row 1&quot;, &quot;col 2 row 2&quot;] }</code></td>
+</tr>
+<tr>
+<td>Numeric</td>
+<td><code class="prettyprint">&quot;123.45&quot;</code></td>
+</tr>
+<tr>
+<td>Website</td>
+<td><code class="prettyprint">&quot;http://www.google.com&quot;</code></td>
+</tr>
+<tr>
+<td>Price</td>
+<td><code class="prettyprint">{ &quot;dollars&quot;: &quot;12&quot;, &quot;cents&quot;: &quot;99&quot; }</code></td>
+</tr>
+<tr>
+<td>File</td>
+<td><code class="prettyprint">&quot;b42Unp-Oj_qeyCWNDaTBXr8nygNq5x4-&quot;</code><br><br>To get this ID, first upload a file using the endpoint described <a href="#">below</a>.</td>
+</tr>
+<tr>
+<td>Map Marker</td>
+<td><code class="prettyprint">{ &quot;lat&quot;: &quot;40.7700118&quot;, &quot;lng&quot;: &quot;-73.9800453&quot; }</code></td>
+</tr>
+</tbody></table>
+
+<h2 id="uploading-files">Uploading files</h2>
+
+<p>In order to include a file in the <a href="#spec-for-the-response-hash">response fields hash</a>, you must first upload it using the following endpoint.</p>
+<pre><code class="highlight shell">curl https://screendoor.dobt.co/api/form_renderer/file?v<span class="o">=</span>0&amp;response_field_id<span class="o">=</span>123 <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -F <span class="s2">"file=@/path/to/file"</span>
+
+<span class="c"># Example Response</span>
+<span class="o">{</span><span class="s2">"ok"</span>:true,<span class="s2">"file_id"</span>:<span class="s2">"b42Unp-Oj_qeyCWNDaTBXr8nygNq5x4-"</span><span class="o">}</span>
+</code></pre>
 
       </div>
       <div class="dark-box">
