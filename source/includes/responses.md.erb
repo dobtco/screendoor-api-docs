@@ -31,7 +31,7 @@ curl https://screendoor.dobt.co/api/projects/2/responses?v=0&api_key=d9763djh127
     "1": "Vivian Cronin",
     "2": "emmanuelle@goyette.co.uk",
     "3": "New application for your job on Startuply",
-    "4": "To Whom it May Concern: I am very interested in working at your company. The widgets you make are AMAZING, and I would love to be a part of it. I have many skills, but the most important ones are my abilities to collect information from people, screen filter it effectively, select the right options, and follow through with the right options quickly. Plus, I even know what to do with the options we did not select. Adding me to your team means saving time, saving money and getting back to doing the work you love doing.\n"
+    "4": "To Whom it May Concern: I am very interested in working at your company. The widgets you make are AMAZING, and I would love to be a part of it. I have many skills, but the most important ones are my abilities to collect information from people, screen it effectively, select the right options, and follow through with the right options quickly. Plus, I even know what to do with the options we did not select. Adding me to your team means saving time, saving money and getting back to doing the work you love doing.\n"
   },
   "skip_email_confirmation": true,
   "skip_notifications": true,
@@ -53,6 +53,7 @@ curl https://screendoor.dobt.co/api/projects/2/responses?v=0&api_key=d9763djh127
 
 | Parameter | Type | Default | Description |
 | --- | --- | --- | --- |
+| response_fields | hash | {} | See [the spec](#spec-for-the-response-hash) below
 | skip_email_confirmation | boolean | false | If `false`, the respondent receives an email confirming submission of the response.  |
 | skip_notifications | boolean | false | If `false`, administrators receive notification that the response was submitted. |
 | skip_validation | boolean | false | If `false`, validation errors are raised if the response is invalid. |
@@ -91,7 +92,8 @@ curl https://screendoor.dobt.co/api/projects/2/responses/2?v=0&api_key=d9763djh1
   -d '
 {
   "response_fields": {
-    "1": "Veronica Cronin"
+    "1": "Veronica Cronin",
+    "2": { "0": "on", "1": false }
   },
   "status": "Accepted"
 }
@@ -109,6 +111,7 @@ curl https://screendoor.dobt.co/api/projects/2/responses/2?v=0&api_key=d9763djh1
 
 | Parameter | Type | Default | Description |
 | --- | --- | --- | --- |
+| response_fields | hash | {} | See [the spec](#spec-for-the-response-hash) below
 | force_validation | boolean | false | If `false`, validations errors are raised if the response is invalid. |
 | status | string | *set inside Screendoor* | The only possible values are statutes set within the Screendoor project.  |
 | labels | array | [] | Possible values in the array: label names already used in the project and new label names. |
@@ -129,3 +132,39 @@ Status: 204 No Content
 ### HTTP Request
 
 `DELETE /projects/:project_id/responses/:response_id`
+
+## Spec for the response hash
+
+In order to encode a response to a Screendoor form, you must use the format defined below. In each key-value pair, the key is the ID of your response field, and the value depends on the type of that field. See [an example](#update-a-response) of a complete payload above.
+
+| Field type | Format |
+| --- | --- | --- |
+| Text | `"foo"` |
+| Paragraph | `"I have many skills, but the most important ones are my abilities to collect information from people, screen it effectively, select the right options, and follow through with the right options quickly."` |
+| Checkboxes | `{ "0": "on", "1": false }` <br><br>or with "other" selected:<br><br> `{ "0": false, "1": "on", "other_checkbox": "on", "other": "Something else" }` |
+| Multiple Choice | `"Choice #1"` |
+| Dropdown | `"Choice #2"` |
+| Date | `{ "month": "2", "day": "15", "year": "2015"}` |
+| Time | `{ "am_pm": "PM", "hours": "6", "minutes": "01", "seconds": "30"}` |
+| Phone | `"4151234567"` |
+| Email | `"foo@bar.com"` |
+| Address | `{ "country": "US", "street": "123 Main St.", "city": "Pleasantville", "state": "Illinois" }` |
+| Table | `{ "0": ["col 1 row 1", "col 1 row 2"], "1": ["col 2 row 1", "col 2 row 2"] }` |
+| Numeric | `"123.45"` |
+| Website | `"http://www.google.com"` |
+| Price | `{ "dollars": "12", "cents": "99" }` |
+| File | `"b42Unp-Oj_qeyCWNDaTBXr8nygNq5x4-"`<br><br>To get this ID, first upload a file using the endpoint described [below](). |
+| Map Marker | `{ "lat": "40.7700118", "lng": "-73.9800453" }` |
+
+## Uploading files
+
+In order to include a file in the [response fields hash](#spec-for-the-response-hash), you must first upload it using the following endpoint.
+
+```shell
+curl https://screendoor.dobt.co/api/form_renderer/file?v=0&response_field_id=123 \
+  -X POST \
+  -F "file=@/path/to/file"
+
+# Example Response
+{"ok":true,"file_id":"b42Unp-Oj_qeyCWNDaTBXr8nygNq5x4-"}
+```
