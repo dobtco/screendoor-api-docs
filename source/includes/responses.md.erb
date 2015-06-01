@@ -53,34 +53,12 @@ curl https://screendoor.dobt.co/api/projects/2/responses?v=0&api_key=d9763djh127
 
 | Parameter | Type | Default | Description |
 | --- | --- | --- | --- |
+| response_fields | hash | {} | See [the spec](#spec-for-the-response-hash) below
 | skip_email_confirmation | boolean | false | If `false`, the respondent receives an email confirming submission of the response.  |
 | skip_notifications | boolean | false | If `false`, administrators receive notification that the response was submitted. |
 | skip_validation | boolean | false | If `false`, validation errors are raised if the response is invalid. |
 | status | string | *set inside Screendoor* | The only possible values are statutes set within the Screendoor project. |
 | labels | array | [] | Possible values in the array: label names already used in the project and new labels names. |
-
-### RESPONSE FIELD INPUTS
-
-In a `Response` hash, field inputs reside in a key-value pair whose key is `responses`. The value is a hash, within which are the individual field inputs, as laid out below:
-
-| Input | Format | Notes |
-| --- | --- | --- |
-| Text | `"35": "foo"` | |
-| Paragraph | `"36": "I have many skills, but the most important ones are my abilities to collect information from people, screen it effectively, select the right options, and follow through with the right options quickly."` | |
-| Checkboxes | `"37": { "0": "on", "1": false }` | If an option is selected, the value is `"0"`. If an option is left unselected, the value is `false`.  |
-| Multiple Choice | `"38": "Choice #1"` | |
-| Dropdown | `"39": "Choice #2"` | If the blank option is selected, the value is `""`.|
-| Date | `"40": { "month": "2", "day": "15", "year": "2015"}` | |
-| Time | `"41": { "am_pm": "PM", "hours": "6", "minutes": "01", "seconds": "30"}` | |
-| Phone | `"42": "4151234567"` | |
-| Email | `"43": "foo@bar.com"` | |
-| Address | `"44": { "country": "United States", "street": "123 Main St.", "city": "Pleasantville", "state": "Illinois"}` | |
-| Table | `"45": { "0": ["first row", "1"], "1": ["second row", "2"]}` | |
-| Numeric | `"46": "123"` | |
-| Website | `"47": "http://www.google.com"` | |
-| Price | `"48": { "dollars": "12", "cents": "99"}` | |
-| File | | |
-| Map Marker | `"50": { "lat": "40.7700118", "lng": "-73.9800453"}` | |
 
 ## Retrieve a single response
 
@@ -114,7 +92,8 @@ curl https://screendoor.dobt.co/api/projects/2/responses/2?v=0&api_key=d9763djh1
   -d '
 {
   "response_fields": {
-    "1": "Veronica Cronin"
+    "1": "Veronica Cronin",
+    "2": { "0": "on", "1": false }
   },
   "status": "Accepted"
 }
@@ -132,6 +111,7 @@ curl https://screendoor.dobt.co/api/projects/2/responses/2?v=0&api_key=d9763djh1
 
 | Parameter | Type | Default | Description |
 | --- | --- | --- | --- |
+| response_fields | hash | {} | See [the spec](#spec-for-the-response-hash) below
 | force_validation | boolean | false | If `false`, validations errors are raised if the response is invalid. |
 | status | string | *set inside Screendoor* | The only possible values are statutes set within the Screendoor project.  |
 | labels | array | [] | Possible values in the array: label names already used in the project and new label names. |
@@ -152,3 +132,39 @@ Status: 204 No Content
 ### HTTP Request
 
 `DELETE /projects/:project_id/responses/:response_id`
+
+## Spec for the response hash
+
+In order to encode a response to a Screendoor form, you must use the format defined below. In each key-value pair, the key is the ID of your response field, and the value depends on the type of that field. See [an example](#update-a-response) of a complete payload above.
+
+| Field type | Format |
+| --- | --- | --- |
+| Text | `"foo"` |
+| Paragraph | `"I have many skills, but the most important ones are my abilities to collect information from people, screen it effectively, select the right options, and follow through with the right options quickly."` |
+| Checkboxes | `{ "0": "on", "1": false }` <br><br>or with "other" selected:<br><br> `{ "0": false, "1": "on", "other_checkbox": "on", "other": "Something else" }` |
+| Multiple Choice | `"Choice #1"` |
+| Dropdown | `"Choice #2"` |
+| Date | `{ "month": "2", "day": "15", "year": "2015"}` |
+| Time | `{ "am_pm": "PM", "hours": "6", "minutes": "01", "seconds": "30"}` |
+| Phone | `"4151234567"` |
+| Email | `"foo@bar.com"` |
+| Address | `{ "country": "US", "street": "123 Main St.", "city": "Pleasantville", "state": "Illinois" }` |
+| Table | `{ "0": ["col 1 row 1", "col 1 row 2"], "1": ["col 2 row 1", "col 2 row 2"] }` |
+| Numeric | `"123.45"` |
+| Website | `"http://www.google.com"` |
+| Price | `{ "dollars": "12", "cents": "99" }` |
+| File | `"b42Unp-Oj_qeyCWNDaTBXr8nygNq5x4-"`<br><br>To get this ID, first upload a file using the endpoint described [below](). |
+| Map Marker | `{ "lat": "40.7700118", "lng": "-73.9800453" }` |
+
+## Uploading files
+
+In order to include a file in the [response fields hash](#spec-for-the-response-hash), you must first upload it using the following endpoint.
+
+```shell
+curl https://screendoor.dobt.co/api/form_renderer/file?v=0&response_field_id=123 \
+  -X POST \
+  -F "file=@/path/to/file"
+
+# Example Response
+{"ok":true,"file_id":"b42Unp-Oj_qeyCWNDaTBXr8nygNq5x4-"}
+```
