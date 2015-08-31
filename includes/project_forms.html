@@ -33,7 +33,7 @@
 <h2 id="list-a-project&#39;s-response-fields">List a project&rsquo;s response fields</h2>
 
 <p>Returns a list of response fields to a project with the given <code class="prettyprint">project_id</code>.</p>
-<pre><code class="highlight shell">curl https://screendoor.dobt.co/api/projects/2/response_fields?v<span class="o">=</span>0&amp;api_key<span class="o">=</span>d9763djh1274
+<pre><code class="highlight shell">curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/response_fields?v=0&amp;api_key=d9763djh1274"</span>
 
 <span class="c"># Example Response</span>
 <span class="o">[</span>
@@ -65,7 +65,7 @@
 <h2 id="add-a-response-field">Add a response field</h2>
 
 <p>Adds a response field to a project&rsquo;s form.</p>
-<pre><code class="highlight shell">curl https://screendoor.dobt.co/api/projects/2/response_fields?v<span class="o">=</span>0&amp;api_key<span class="o">=</span>d9763djh1274 <span class="se">\</span>
+<pre><code class="highlight shell">curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/response_fields?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -X POST <span class="se">\</span>
   -d <span class="s1">'
@@ -103,7 +103,7 @@
 <h2 id="update-a-response-field">Update a response field</h2>
 
 <p>Updates the specified response field by assigning values to the keys of the <code class="prettyprint">Response Field</code> hash. The values of any keys you do not provide will be left unchanged.</p>
-<pre><code class="highlight shell">curl https://screendoor.dobt.co/api/projects/2/response_fields/235?v<span class="o">=</span>0&amp;api_key<span class="o">=</span>d9763djh1274 <span class="se">\</span>
+<pre><code class="highlight shell">curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/response_fields/235?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -X PUT <span class="se">\</span>
   -d <span class="s1">'
@@ -141,7 +141,7 @@
 <h2 id="batch-update-a-project&#39;s-form">Batch-update a project&rsquo;s form</h2>
 
 <p>Batch-updates the form for a project. Any response fields that don&rsquo;t exist will be added, and any existing fields that aren&rsquo;t present in the request body will be destroyed.</p>
-<pre><code class="highlight shell">curl https://screendoor.dobt.co/api/projects/2/response_fields/batch?v<span class="o">=</span>0&amp;api_key<span class="o">=</span>d9763djh1274 <span class="se">\</span>
+<pre><code class="highlight shell">curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/response_fields/batch?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -X POST <span class="se">\</span>
   -d <span class="s1">'
@@ -207,7 +207,7 @@
 <h2 id="delete-a-response-field">Delete a response field</h2>
 
 <p>Deletes a response field. Note that you will lose any responses to this field.</p>
-<pre><code class="highlight shell">curl https://screendoor.dobt.co/api/projects/2/response_fields/5?v<span class="o">=</span>0&amp;api_key<span class="o">=</span>d9763djh1274 <span class="se">\</span>
+<pre><code class="highlight shell">curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/response_fields/5?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -X DELETE
 
