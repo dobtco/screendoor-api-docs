@@ -5,7 +5,7 @@
 You can see a list of the projects belonging to a specific site.
 
 ```shell
-curl https://screendoor.dobt.co/api/sites/1/projects?v=0&api_key=d9763djh1274
+curl "https://screendoor.dobt.co/api/sites/1/projects?v=0&api_key=d9763djh1274"
 
 # Example Response
 [
@@ -21,7 +21,7 @@ curl https://screendoor.dobt.co/api/sites/1/projects?v=0&api_key=d9763djh1274
 Creates a new project.
 
 ```shell
-curl https://screendoor.dobt.co/api/sites/1/projects?v=0&api_key=d9763djh1274 \
+curl "https://screendoor.dobt.co/api/sites/1/projects?v=0&api_key=d9763djh1274" \
   -H 'Content-Type: application/json' \
   -X POST \
   -d '
@@ -44,7 +44,7 @@ curl https://screendoor.dobt.co/api/sites/1/projects?v=0&api_key=d9763djh1274 \
 Retrieves the details of a specified project.
 
 ```shell
-curl https://screendoor.dobt.co/api/sites/1/projects/1?v=0&api_key=d9763djh1274
+curl "https://screendoor.dobt.co/api/sites/1/projects/1?v=0&api_key=d9763djh1274"
 
 # Example Response
 <%= partial 'resources/project.json' %>
@@ -58,7 +58,7 @@ curl https://screendoor.dobt.co/api/sites/1/projects/1?v=0&api_key=d9763djh1274
 Updates the specified project by assigning values to the keys of the `Project` hash. The values of any keys you do not provide will be left unchanged.
 
 ```shell
-curl https://screendoor.dobt.co/api/sites/1/projects/1?v=0&api_key=d9763djh1274 \
+curl "https://screendoor.dobt.co/api/sites/1/projects/1?v=0&api_key=d9763djh1274" \
   -H 'Content-Type: application/json' \
   -X PUT \
   -d '
@@ -81,7 +81,7 @@ curl https://screendoor.dobt.co/api/sites/1/projects/1?v=0&api_key=d9763djh1274 
 Deletes a project.
 
 ```shell
-curl https://screendoor.dobt.co/api/sites/1/projects/1?v=0&api_key=d9763djh1274 \
+curl "https://screendoor.dobt.co/api/sites/1/projects/1?v=0&api_key=d9763djh1274" \
   -H 'Content-Type: application/json' \
   -X DELETE
 

@@ -5,7 +5,7 @@
 Returns a list of responses to a specified project.
 
 ```shell
-curl https://screendoor.dobt.co/api/projects/2/responses?v=0&api_key=d9763djh1274
+curl "https://screendoor.dobt.co/api/projects/2/responses?v=0&api_key=d9763djh1274"
 
 # Example Response
 [
@@ -22,7 +22,7 @@ curl https://screendoor.dobt.co/api/projects/2/responses?v=0&api_key=d9763djh127
 Creates a response to the specified project.
 
 ```shell
-curl https://screendoor.dobt.co/api/projects/2/responses?v=0&api_key=d9763djh1274 \
+curl "https://screendoor.dobt.co/api/projects/2/responses?v=0&api_key=d9763djh1274" \
   -H 'Content-Type: application/json' \
   -X POST \
   -d '
@@ -65,7 +65,7 @@ curl https://screendoor.dobt.co/api/projects/2/responses?v=0&api_key=d9763djh127
 Retrieves a response with the given `:response_id`.
 
 ```shell
-curl https://screendoor.dobt.co/api/projects/2/responses/3?v=0&api_key=d9763djh1274
+curl "https://screendoor.dobt.co/api/projects/2/responses/3?v=0&api_key=d9763djh1274"
 
 # Example Response
 <%= partial 'resources/response.json' %>
@@ -86,7 +86,7 @@ curl https://screendoor.dobt.co/api/projects/2/responses/3?v=0&api_key=d9763djh1
 Updates the specified response.
 
 ```shell
-curl https://screendoor.dobt.co/api/projects/2/responses/2?v=0&api_key=d9763djh1274 \
+curl "https://screendoor.dobt.co/api/projects/2/responses/2?v=0&api_key=d9763djh1274" \
   -H 'Content-Type: application/json' \
   -X PUT \
   -d '
@@ -121,7 +121,7 @@ curl https://screendoor.dobt.co/api/projects/2/responses/2?v=0&api_key=d9763djh1
 Deletes a response with the given `:response_id`.
 
 ```shell
-curl https://screendoor.dobt.co/api/projects/2/responses/3?v=0&api_key=d9763djh1274 \
+curl "https://screendoor.dobt.co/api/projects/2/responses/3?v=0&api_key=d9763djh1274" \
   -H 'Content-Type: application/json' \
   -X DELETE
 
@@ -161,7 +161,7 @@ In order to encode a response to a Screendoor form, you must use the format defi
 In order to include a file in the [response fields hash](#spec-for-the-response-hash), you must first upload it using the following endpoint.
 
 ```shell
-curl https://screendoor.dobt.co/api/form_renderer/file?v=0&response_field_id=123 \
+curl "https://screendoor.dobt.co/api/form_renderer/file?v=0&response_field_id=123" \
   -X POST \
   -F "file=@/path/to/file"
 

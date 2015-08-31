@@ -12,7 +12,7 @@ All of our API endpoints start with `https://screendoor.dobt.co/api/`.
 ## Pagination
 
 ```shell
-curl --include https://screendoor.dobt.co/api/sites/1/projects?page=5&v=0&api_key=d9763djh1274
+curl --include "https://screendoor.dobt.co/api/sites/1/projects?page=5&v=0&api_key=d9763djh1274"
 
 # Example Response
 HTTP/1.1 200 OK
