@@ -17,6 +17,13 @@ curl "https://screendoor.dobt.co/api/projects/2/responses?v=0&api_key=d9763djh12
 
 `GET /projects/:project_id/responses`
 
+### Query Parameters
+
+| Parameter | Default | Description |
+| --- | --- | --- | --- |
+| sort | `"id"` | Either `"id"` or `"submitted_at"`  |
+| direction | `"asc"` | Either `"asc"` or `"desc"` |
+
 ## Create a response
 
 Creates a response to the specified project.
