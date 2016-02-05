@@ -96,7 +96,7 @@ Total: 4321
 
 <span class="c"># Example Response</span>
 <span class="o">[</span>
-  <span class="o">{</span>
+<span class="o">{</span>
   <span class="s2">"id"</span>: 235,
   <span class="s2">"form_id"</span>: 42,
   <span class="s2">"label"</span>: <span class="s2">"Your Approach"</span>,
@@ -113,7 +113,6 @@ Total: 4321
   <span class="s2">"field_type"</span>: <span class="s2">"paragraph"</span>,
   <span class="s2">"cid"</span>: null
 <span class="o">}</span>
-
 <span class="o">]</span>
 </code></pre>
 
@@ -292,7 +291,7 @@ Status: 204 No Content
 
 <span class="c"># Example Response</span>
 <span class="o">[</span>
-  <span class="o">{</span>
+<span class="o">{</span>
   <span class="s2">"id"</span>: 1,
   <span class="s2">"sequential_id"</span>: 1,
   <span class="s2">"name"</span>: <span class="s2">"Hiring by email"</span>,
@@ -319,7 +318,6 @@ Status: 204 No Content
   <span class="s2">"show_askers"</span>: <span class="nb">true</span>,
   <span class="s2">"email_responses"</span>: 3
 <span class="o">}</span>
-
 <span class="o">]</span>
 </code></pre>
 
@@ -486,13 +484,13 @@ Status: 204 No Content
 
 <h2 id="list-a-project&#39;s-responses">List a project&rsquo;s responses</h2>
 
-<p>Returns a list of responses to a specified project.</p>
+<p>Returns a list of responses to a specified project. Note that in order to retrieve the <code class="prettyprint">assignees</code> or <code class="prettyprint">archived_responses</code> keys in the returned data, you&rsquo;ll need to use the <a href="#retrieve-a-single-response">single response endpoint</a>.</p>
 
 <pre><code class="highlight shell">curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/responses?v=0&amp;api_key=d9763djh1274"</span>
 
 <span class="c"># Example Response</span>
 <span class="o">[</span>
-  <span class="o">{</span>
+<span class="o">{</span>
   <span class="s2">"id"</span>: 3,
   <span class="s2">"sequential_id"</span>: 3,
   <span class="s2">"project_id"</span>: 2,
@@ -512,10 +510,8 @@ Status: 204 No Content
   <span class="s2">"updated_at"</span>: <span class="s2">"2014-05-07T19:20:51.485Z"</span>,
   <span class="s2">"status"</span>: <span class="s2">"Starred"</span>,
   <span class="s2">"labels"</span>: <span class="o">[]</span>,
-  <span class="s2">"user"</span>: null,
-  <span class="s2">"assigned_to_user"</span>: null
+  <span class="s2">"user"</span>: null
 <span class="o">}</span>
-
 <span class="o">]</span>
 </code></pre>
 
@@ -588,8 +584,7 @@ Status: 204 No Content
   <span class="s2">"updated_at"</span>: <span class="s2">"2014-05-07T19:20:51.485Z"</span>,
   <span class="s2">"status"</span>: <span class="s2">"Starred"</span>,
   <span class="s2">"labels"</span>: <span class="o">[]</span>,
-  <span class="s2">"user"</span>: null,
-  <span class="s2">"assigned_to_user"</span>: null
+  <span class="s2">"user"</span>: null
 <span class="o">}</span>
 
 </code></pre>
@@ -674,7 +669,25 @@ Status: 204 No Content
   <span class="s2">"status"</span>: <span class="s2">"Starred"</span>,
   <span class="s2">"labels"</span>: <span class="o">[]</span>,
   <span class="s2">"user"</span>: null,
-  <span class="s2">"assigned_to_user"</span>: null
+  <span class="s2">"archived_responses"</span>: <span class="o">[</span>
+    <span class="o">{</span>
+      <span class="s2">"id"</span>: 4,
+      <span class="s2">"responses_updated_at"</span>: <span class="s2">"2014-05-07T19:19:43.230Z"</span>,
+      <span class="s2">"responses"</span>: <span class="o">{</span> <span class="o">}</span>
+    <span class="o">}</span>
+  <span class="o">]</span>,
+  <span class="s2">"assignees"</span>: <span class="o">[</span>
+    <span class="o">{</span>
+      <span class="s2">"type"</span>: <span class="s2">"User"</span>,
+      <span class="s2">"id"</span>: 10,
+      <span class="s2">"name"</span>: <span class="s2">"Richard Ayoade"</span>
+    <span class="o">}</span>,
+    <span class="o">{</span>
+      <span class="s2">"type"</span>: <span class="s2">"ProjectTeam"</span>,
+      <span class="s2">"id"</span>: 93,
+      <span class="s2">"name"</span>: <span class="s2">"HR"</span>
+    <span class="o">}</span>
+  <span class="o">]</span>
 <span class="o">}</span>
 
 </code></pre>
@@ -737,8 +750,7 @@ Status: 204 No Content
   <span class="s2">"updated_at"</span>: <span class="s2">"2014-05-07T19:20:51.485Z"</span>,
   <span class="s2">"status"</span>: <span class="s2">"Starred"</span>,
   <span class="s2">"labels"</span>: <span class="o">[]</span>,
-  <span class="s2">"user"</span>: null,
-  <span class="s2">"assigned_to_user"</span>: null
+  <span class="s2">"user"</span>: null
 <span class="o">}</span>
 
 </code></pre>

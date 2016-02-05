@@ -18,5 +18,24 @@
   "updated_at": "2014-05-07T19:20:51.485Z",
   "status": "Starred",
   "labels": [],
-  "user": null
+  "user": null,
+  "archived_responses": [
+    {
+      "id": 4,
+      "responses_updated_at": "2014-05-07T19:19:43.230Z",
+      "responses": { }
+    }
+  ],
+  "assignees": [
+    {
+      "type": "User",
+      "id": 10,
+      "name": "Richard Ayoade"
+    },
+    {
+      "type": "ProjectTeam",
+      "id": 93,
+      "name": "HR"
+    }
+  ]
 }
