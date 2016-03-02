@@ -23,11 +23,11 @@ Link: <https://screendoor.dobt.co/api/site/1/projects?page=1>; rel="first">,
 Total: 4321
 ```
 
-We use the link header for pagination. When multiple pages of a resource exist, you'll see headers that look like those in the example response on the right.
+We use the Link header for pagination. When multiple pages of a resource exist, you'll see a header like the one in the example response on the right.
 
 By default, each page will contain up to **25** records, at which point, you'll need to pass a `?page=` parameter in order to retrieve the next page.
 
-You can change the number of records that are returned by adding a `?per_page=` parameter, although for performance reasons, this number is capped at 100.
+You can change the number of records that are returned by adding a `?per_page=` parameter. For performance reasons, we limit this number to 100.
 
 ## Versioning
 
