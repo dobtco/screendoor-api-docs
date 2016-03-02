@@ -78,7 +78,7 @@
 <tr>
 <td>sort</td>
 <td><code class="prettyprint">&quot;id&quot;</code></td>
-<td>Either <code class="prettyprint">&quot;id&quot;</code> or <code class="prettyprint">&quot;submitted_at&quot;</code></td>
+<td>One of <code class="prettyprint">&quot;id&quot;</code>, <code class="prettyprint">&quot;submitted_at&quot;</code>, <code class="prettyprint">&quot;responses_updated_at&quot;</code>, <code class="prettyprint">&quot;status&quot;</code>, <code class="prettyprint">&quot;has_signature&quot;</code>, <code class="prettyprint">&quot;num_ratings&quot;</code>, <code class="prettyprint">&quot;responder&quot;</code>, <code class="prettyprint">&quot;responder_email&quot;</code>, <code class="prettyprint">&quot;assigned&quot;</code>, <code class="prettyprint">&quot;average_rating&quot;</code>, <code class="prettyprint">&quot;edit_status&quot;</code></td>
 </tr>
 <tr>
 <td>direction</td>
@@ -86,6 +86,12 @@
 <td>Either <code class="prettyprint">&quot;asc&quot;</code> or <code class="prettyprint">&quot;desc&quot;</code></td>
 </tr>
 </tbody></table>
+
+<p>In addition to the parameters above, this endpoint accepts the same query parameters as Screendoor&rsquo;s <a href="http://help.dobt.co/articles/screendoor/responses/viewing_a_list_of_responses.html">responses page</a>.</p>
+
+<p>To find the correct parameters, consider using <a href="http://help.dobt.co/articles/screendoor/responses/searching_for_responses.html#using-simple-and-advanced-search">advanced search</a> to construct a query. Then copy the <code class="prettyprint">?advanced_search=</code> part of the resulting URL.</p>
+
+<p>(Since API keys aren&rsquo;t associated with individual users, you will not be able to use query parameters that refer to &ldquo;my rating.&rdquo;)</p>
 
 <h2 id="create-a-response">Create a response</h2>
 
