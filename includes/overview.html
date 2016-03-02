@@ -53,7 +53,11 @@ Link: &lt;https://screendoor.dobt.co/api/site/1/projects?page<span class="o">=</
 Total: 4321
 </code></pre>
 
-<p>We use the link header for pagination. When multiple pages of a resource exist, you&rsquo;ll see headers that look like those in the example response on the right:</p>
+<p>We use the Link header for pagination. When multiple pages of a resource exist, you&rsquo;ll see a header like the one in the example response on the right.</p>
+
+<p>By default, each page will contain up to <strong>25</strong> records, at which point, you&rsquo;ll need to pass a <code class="prettyprint">?page=</code> parameter in order to retrieve the next page.</p>
+
+<p>You can change the number of records that are returned by adding a <code class="prettyprint">?per_page=</code> parameter. For performance reasons, we limit this number to 100.</p>
 
 <h2 id="versioning">Versioning</h2>
 
