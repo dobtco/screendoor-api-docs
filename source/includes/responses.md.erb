@@ -22,6 +22,7 @@ curl "https://screendoor.dobt.co/api/projects/2/responses?v=0&api_key=d9763djh12
 | --- | --- | --- | --- |
 | sort | `"id"` | One of `"id"`, `"submitted_at"`, `"responses_updated_at"`, `"status"`, `"has_signature"`, `"num_ratings"`, `"responder"`, `"responder_email"`, `"assigned"`, `"average_rating"`, `"edit_status"`  |
 | direction | `"asc"` | Either `"asc"` or `"desc"` |
+| trash | `false` | Set this to `true` to view responses that are in the trash. |
 
 In addition to the parameters above, this endpoint accepts the same query parameters as Screendoor's [responses page](http://help.dobt.co/articles/screendoor/responses/viewing_a_list_of_responses.html).
 
@@ -130,7 +131,7 @@ curl "https://screendoor.dobt.co/api/projects/2/responses/2?v=0&api_key=d9763djh
 
 ## Delete a response
 
-Deletes a response with the given `:response_id`.
+Moves the response with the given `:response_id` to the trash.
 
 ```shell
 curl "https://screendoor.dobt.co/api/projects/2/responses/3?v=0&api_key=d9763djh1274" \
@@ -144,6 +145,40 @@ Status: 204 No Content
 ### HTTP Request
 
 `DELETE /projects/:project_id/responses/:response_id`
+
+## Recover a response
+
+Recovers the response with the given `:response_id` from the trash.
+
+```shell
+curl "https://screendoor.dobt.co/api/projects/2/responses/3/recover?v=0&api_key=d9763djh1274" \
+  -H 'Content-Type: application/json' \
+  -X POST
+
+# Example Response
+<%= partial 'resources/response.json' %>
+```
+
+### HTTP Request
+
+`POST /projects/:project_id/responses/:response_id/recover`
+
+## Permanently destroy a response
+
+Delete a response forever, skipping the trash.
+
+```shell
+curl "https://screendoor.dobt.co/api/projects/2/responses/3/delete_forever?v=0&api_key=d9763djh1274" \
+  -H 'Content-Type: application/json' \
+  -X DELETE
+
+# Example Response
+Status: 204 No Content
+```
+
+### HTTP Request
+
+`DELETE /projects/:project_id/responses/:response_id/delete_forever`
 
 ## Spec for the response hash
 
