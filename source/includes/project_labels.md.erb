@@ -1,0 +1,102 @@
+# Project labels
+
+## List a project's labels
+
+Returns a list of labels belonging to a specified project.
+
+```shell
+curl "https://screendoor.dobt.co/api/projects/2/labels?v=0&api_key=d9763djh1274"
+
+# Example Response
+[
+<%= partial 'resources/project_label.json' %>]
+```
+
+### HTTP Request
+
+`GET /projects/:project_id/labels`
+
+## Create a label
+
+Creates a label for the specified project.
+
+```shell
+curl "https://screendoor.dobt.co/api/projects/2/labels?v=0&api_key=d9763djh1274" \
+  -H 'Content-Type: application/json' \
+  -X POST \
+  -d '
+{
+  "name": "Missing info",
+  "color": "464b6d"
+}
+'
+
+# Example Response
+<%= partial 'resources/project_label.json' %>
+```
+
+### HTTP Request
+
+`POST /projects/:project_id/labels`
+
+### Options
+
+| Parameter | Type | Default | Description |
+| --- | --- | --- | --- |
+| name | string | | |
+| color | string | Randomly chosen | A 6-digit hex color code |
+
+## Retrieve a single label
+
+Retrieves a label by name.
+
+```shell
+curl "https://screendoor.dobt.co/api/projects/2/labels/Missing%20info?v=0&api_key=d9763djh1274"
+
+# Example Response
+<%= partial 'resources/project_label.json' %>
+```
+
+### HTTP Request
+
+`GET /projects/:project_id/labels/:name`
+
+## Update a label
+
+Updates the specified label.
+
+```shell
+curl "https://screendoor.dobt.co/api/projects/2/labels/ThisIsALabelName?v=0&api_key=d9763djh1274" \
+  -H 'Content-Type: application/json' \
+  -X PUT \
+  -d '
+{
+  "name": "Missing info"
+}
+'
+
+# Example Response
+<%= partial 'resources/project_label.json' %>
+```
+
+### HTTP Request
+
+`PUT /projects/:project_id/labels/:name`
+
+## Delete a label
+
+Deletes a label by name.
+
+```shell
+curl "https://screendoor.dobt.co/api/projects/2/labels/Missing%20info?v=0&api_key=d9763djh1274" \
+  -H 'Content-Type: application/json' \
+  -X DELETE
+
+# Example Response
+Status: 204 No Content
+```
+
+### HTTP Request
+
+`DELETE /projects/:project_id/labels/:name`
+

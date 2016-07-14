@@ -1,0 +1,103 @@
+# Response assignments
+
+A response can be assigned to many teams and/or users. An "assignment parameter" takes the format of `:type,:id`, where type is either `ProjectTeam` or `User`, and `id` is the identifier for that record.
+
+For example, to reference User #9, we would use the parameter `User,9`.
+
+## List a responses' assignments
+
+Returns a list of assignees for the specified response.
+
+```shell
+curl "https://screendoor.dobt.co/api/responses/3/assignees?v=0&api_key=d9763djh1274"
+
+# Example Response
+[
+<%= partial 'resources/assignee_team.json' %>,
+<%= partial 'resources/assignee_user.json' %>]
+```
+
+### HTTP Request
+
+`GET /responses/:response_id/assignments`
+
+## Add one or more assignees to a response
+
+The teams and/or users must already exist inside of the project.
+
+```shell
+curl "https://screendoor.dobt.co/api/responses/3/assignments?v=0&api_key=d9763djh1274" \
+  -H 'Content-Type: application/json' \
+  -X POST \
+  -d '
+{
+  "assignees": ["ProjectTeam,9", "User,4"]
+}
+'
+
+# Example Response
+[
+<%= partial 'resources/assignee_team.json' %>,
+<%= partial 'resources/assignee_user.json' %>]
+```
+
+### HTTP Request
+
+`POST /responses/:response_id/assignments`
+
+## Remove an assignment from a response
+
+Removes an assignment from a response by the "assignment parameter." If the response does not have that user or team assigned, a `404` will be returned.
+
+```shell
+curl "https://screendoor.dobt.co/api/responses/3/assignments/ProjectTeam,9?v=0&api_key=d9763djh1274" \
+  -H 'Content-Type: application/json' \
+  -X DELETE
+
+# Example Response
+Status: 204 No Content
+```
+
+### HTTP Request
+
+`DELETE /responses/:response_id/assignments/:assignment_parameter`
+
+## Replace assignments for a response
+
+The teams and/or users must already exist inside of the project.
+
+```shell
+curl "https://screendoor.dobt.co/api/responses/3/assignments?v=0&api_key=d9763djh1274" \
+  -H 'Content-Type: application/json' \
+  -X PUT \
+  -d '
+{
+  "assignees": ["ProjectTeam,9"]
+}
+'
+
+# Example Response
+[
+<%= partial 'resources/assignee_team.json' %>]
+```
+
+### HTTP Request
+
+`PUT /responses/:response_id/assignments`
+
+## Remove all assignments from a response
+
+Removes all assignments from a response.
+
+```shell
+curl "https://screendoor.dobt.co/api/responses/3/assignments?v=0&api_key=d9763djh1274" \
+  -H 'Content-Type: application/json' \
+  -X DELETE
+
+# Example Response
+Status: 204 No Content
+```
+
+### HTTP Request
+
+`DELETE /responses/:response_id/assignments`

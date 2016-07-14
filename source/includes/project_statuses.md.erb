@@ -1,0 +1,131 @@
+# Project statuses
+
+## List a project's statuses
+
+Returns a list of statuses belonging to a specified project.
+
+```shell
+curl "https://screendoor.dobt.co/api/projects/2/statuses?v=0&api_key=d9763djh1274"
+
+# Example Response
+[
+<%= partial 'resources/status.json' %>]
+```
+
+### HTTP Request
+
+`GET /projects/:project_id/statuses`
+
+## Create a status
+
+Creates a status for the specified project.
+
+```shell
+curl "https://screendoor.dobt.co/api/projects/2/statuses?v=0&api_key=d9763djh1274" \
+  -H 'Content-Type: application/json' \
+  -X POST \
+  -d '
+{
+  "name": "Open"
+}
+'
+
+# Example Response
+<%= partial 'resources/status.json' %>
+```
+
+### HTTP Request
+
+`POST /projects/:project_id/statuses`
+
+### Options
+
+| Parameter | Type | Default | Description |
+| --- | --- | --- | --- |
+| name | string | | |
+
+## Retrieve a single status
+
+Retrieves a status by name.
+
+```shell
+curl "https://screendoor.dobt.co/api/projects/2/statuses/Open?v=0&api_key=d9763djh1274"
+
+# Example Response
+<%= partial 'resources/status.json' %>
+```
+
+### HTTP Request
+
+`GET /projects/:project_id/statuses/:name`
+
+## Update a status
+
+Updates the specified status.
+
+```shell
+curl "https://screendoor.dobt.co/api/projects/2/statuses/ThisIsAStatusName?v=0&api_key=d9763djh1274" \
+  -H 'Content-Type: application/json' \
+  -X PUT \
+  -d '
+{
+  "name": "Open"
+}
+'
+
+# Example Response
+<%= partial 'resources/status.json' %>
+```
+
+### HTTP Request
+
+`PUT /projects/:project_id/statuses/:name`
+
+## Reorder statuses
+
+Sets a new sort order for a project's statuses.
+
+```shell
+curl "https://screendoor.dobt.co/api/projects/2/statuses/reorder?v=0&api_key=d9763djh1274" \
+  -H 'Content-Type: application/json' \
+  -X POST \
+  -d '
+{
+  "names": ["Open", "Archived"]
+}
+'
+
+# Example Response
+[
+{
+  "name": "Open",
+  "responses_count": 10
+},
+{
+  "name": "Archived",
+  "responses_count": 0
+}
+]
+```
+
+### HTTP Request
+
+`POST /projects/:project_id/statuses/reorder`
+
+## Delete a status
+
+Deletes a status by name. Will return a `400 Bad Request` if you try to delete the only status for a project.
+
+```shell
+curl "https://screendoor.dobt.co/api/projects/2/statuses/Open?v=0&api_key=d9763djh1274" \
+  -H 'Content-Type: application/json' \
+  -X DELETE
+
+# Example Response
+Status: 204 No Content
+```
+
+### HTTP Request
+
+`DELETE /projects/:project_id/statuses/:name`
+
