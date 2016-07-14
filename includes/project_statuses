@@ -1,0 +1,146 @@
+<h1 id="project-statuses">Project statuses</h1>
+
+<h2 id="list-a-project-39-s-statuses">List a project&rsquo;s statuses</h2>
+
+<p>Returns a list of statuses belonging to a specified project.</p>
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/statuses?v=0&amp;api_key=d9763djh1274"</span>
+
+<span class="c"># Example Response</span>
+<span class="o">[</span>
+<span class="o">{</span>
+  <span class="s2">"name"</span>: <span class="s2">"Open"</span>,
+  <span class="s2">"responses_count"</span>: 10
+<span class="o">}</span>
+<span class="o">]</span>
+</code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET /projects/:project_id/statuses</code></p>
+
+<h2 id="create-a-status">Create a status</h2>
+
+<p>Creates a status for the specified project.</p>
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/statuses?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -d <span class="s1">'
+{
+  "name": "Open"
+}
+'</span>
+
+<span class="c"># Example Response</span>
+<span class="o">{</span>
+  <span class="s2">"name"</span>: <span class="s2">"Open"</span>,
+  <span class="s2">"responses_count"</span>: 10
+<span class="o">}</span>
+
+</code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST /projects/:project_id/statuses</code></p>
+
+<h3 id="options">Options</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>string</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="retrieve-a-single-status">Retrieve a single status</h2>
+
+<p>Retrieves a status by name.</p>
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/statuses/Open?v=0&amp;api_key=d9763djh1274"</span>
+
+<span class="c"># Example Response</span>
+<span class="o">{</span>
+  <span class="s2">"name"</span>: <span class="s2">"Open"</span>,
+  <span class="s2">"responses_count"</span>: 10
+<span class="o">}</span>
+
+</code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET /projects/:project_id/statuses/:name</code></p>
+
+<h2 id="update-a-status">Update a status</h2>
+
+<p>Updates the specified status.</p>
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/statuses/ThisIsAStatusName?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -X PUT <span class="se">\</span>
+  -d <span class="s1">'
+{
+  "name": "Open"
+}
+'</span>
+
+<span class="c"># Example Response</span>
+<span class="o">{</span>
+  <span class="s2">"name"</span>: <span class="s2">"Open"</span>,
+  <span class="s2">"responses_count"</span>: 10
+<span class="o">}</span>
+
+</code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">PUT /projects/:project_id/statuses/:name</code></p>
+
+<h2 id="reorder-statuses">Reorder statuses</h2>
+
+<p>Sets a new sort order for a project&rsquo;s statuses.</p>
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/statuses/reorder?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -d <span class="s1">'
+{
+  "names": ["Open", "Archived"]
+}
+'</span>
+
+<span class="c"># Example Response</span>
+<span class="o">[</span>
+<span class="o">{</span>
+  <span class="s2">"name"</span>: <span class="s2">"Open"</span>,
+  <span class="s2">"responses_count"</span>: 10
+<span class="o">}</span>,
+<span class="o">{</span>
+  <span class="s2">"name"</span>: <span class="s2">"Archived"</span>,
+  <span class="s2">"responses_count"</span>: 0
+<span class="o">}</span>
+<span class="o">]</span>
+</code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST /projects/:project_id/statuses/reorder</code></p>
+
+<h2 id="delete-a-status">Delete a status</h2>
+
+<p>Deletes a status by name. Will return a <code class="prettyprint">400 Bad Request</code> if you try to delete the only status for a project.</p>
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/statuses/Open?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -X DELETE
+
+<span class="c"># Example Response</span>
+Status: 204 No Content
+</code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">DELETE /projects/:project_id/statuses/:name</code></p>

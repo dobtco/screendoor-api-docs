@@ -1,0 +1,118 @@
+<h1 id="response-assignments">Response assignments</h1>
+
+<p>A response can be assigned to many teams and/or users. An &ldquo;assignment parameter&rdquo; takes the format of <code class="prettyprint">:type,:id</code>, where type is either <code class="prettyprint">ProjectTeam</code> or <code class="prettyprint">User</code>, and <code class="prettyprint">id</code> is the identifier for that record.</p>
+
+<p>For example, to reference User #9, we would use the parameter <code class="prettyprint">User,9</code>.</p>
+
+<h2 id="list-a-responses-39-assignments">List a responses&rsquo; assignments</h2>
+
+<p>Returns a list of assignees for the specified response.</p>
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/responses/3/assignees?v=0&amp;api_key=d9763djh1274"</span>
+
+<span class="c"># Example Response</span>
+<span class="o">[</span>
+<span class="o">{</span>
+  <span class="s2">"type"</span>: <span class="s2">"ProjectTeam"</span>,
+  <span class="s2">"id"</span>: <span class="s2">"9"</span>,
+  <span class="s2">"name"</span>: <span class="s2">"HR Monitors"</span>
+<span class="o">}</span>
+,
+<span class="o">{</span>
+  <span class="s2">"type"</span>: <span class="s2">"User"</span>,
+  <span class="s2">"id"</span>: <span class="s2">"4"</span>,
+  <span class="s2">"name"</span>: <span class="s2">"Richard Ayoade"</span>
+<span class="o">}</span>
+<span class="o">]</span>
+</code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET /responses/:response_id/assignments</code></p>
+
+<h2 id="add-one-or-more-assignees-to-a-response">Add one or more assignees to a response</h2>
+
+<p>The teams and/or users must already exist inside of the project.</p>
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/responses/3/assignments?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -d <span class="s1">'
+{
+  "assignees": ["ProjectTeam,9", "User,4"]
+}
+'</span>
+
+<span class="c"># Example Response</span>
+<span class="o">[</span>
+<span class="o">{</span>
+  <span class="s2">"type"</span>: <span class="s2">"ProjectTeam"</span>,
+  <span class="s2">"id"</span>: <span class="s2">"9"</span>,
+  <span class="s2">"name"</span>: <span class="s2">"HR Monitors"</span>
+<span class="o">}</span>
+,
+<span class="o">{</span>
+  <span class="s2">"type"</span>: <span class="s2">"User"</span>,
+  <span class="s2">"id"</span>: <span class="s2">"4"</span>,
+  <span class="s2">"name"</span>: <span class="s2">"Richard Ayoade"</span>
+<span class="o">}</span>
+<span class="o">]</span>
+</code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST /responses/:response_id/assignments</code></p>
+
+<h2 id="remove-an-assignment-from-a-response">Remove an assignment from a response</h2>
+
+<p>Removes an assignment from a response by the &ldquo;assignment parameter.&rdquo; If the response does not have that user or team assigned, a <code class="prettyprint">404</code> will be returned.</p>
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/responses/3/assignments/ProjectTeam,9?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -X DELETE
+
+<span class="c"># Example Response</span>
+Status: 204 No Content
+</code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">DELETE /responses/:response_id/assignments/:assignment_parameter</code></p>
+
+<h2 id="replace-assignments-for-a-response">Replace assignments for a response</h2>
+
+<p>The teams and/or users must already exist inside of the project.</p>
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/responses/3/assignments?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -X PUT <span class="se">\</span>
+  -d <span class="s1">'
+{
+  "assignees": ["ProjectTeam,9"]
+}
+'</span>
+
+<span class="c"># Example Response</span>
+<span class="o">[</span>
+<span class="o">{</span>
+  <span class="s2">"type"</span>: <span class="s2">"ProjectTeam"</span>,
+  <span class="s2">"id"</span>: <span class="s2">"9"</span>,
+  <span class="s2">"name"</span>: <span class="s2">"HR Monitors"</span>
+<span class="o">}</span>
+<span class="o">]</span>
+</code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">PUT /responses/:response_id/assignments</code></p>
+
+<h2 id="remove-all-assignments-from-a-response">Remove all assignments from a response</h2>
+
+<p>Removes all assignments from a response.</p>
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/responses/3/assignments?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -X DELETE
+
+<span class="c"># Example Response</span>
+Status: 204 No Content
+</code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">DELETE /responses/:response_id/assignments</code></p>

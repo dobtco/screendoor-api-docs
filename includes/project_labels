@@ -1,0 +1,128 @@
+<h1 id="project-labels">Project labels</h1>
+
+<h2 id="list-a-project-39-s-labels">List a project&rsquo;s labels</h2>
+
+<p>Returns a list of labels belonging to a specified project.</p>
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/labels?v=0&amp;api_key=d9763djh1274"</span>
+
+<span class="c"># Example Response</span>
+<span class="o">[</span>
+<span class="o">{</span>
+  <span class="s2">"name"</span>: <span class="s2">"Missing info"</span>,
+  <span class="s2">"color"</span>: <span class="s2">"464b6d"</span>,
+  <span class="s2">"responses_count"</span>: 2
+<span class="o">}</span>
+<span class="o">]</span>
+</code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET /projects/:project_id/labels</code></p>
+
+<h2 id="create-a-label">Create a label</h2>
+
+<p>Creates a label for the specified project.</p>
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/labels?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -d <span class="s1">'
+{
+  "name": "Missing info",
+  "color": "464b6d"
+}
+'</span>
+
+<span class="c"># Example Response</span>
+<span class="o">{</span>
+  <span class="s2">"name"</span>: <span class="s2">"Missing info"</span>,
+  <span class="s2">"color"</span>: <span class="s2">"464b6d"</span>,
+  <span class="s2">"responses_count"</span>: 2
+<span class="o">}</span>
+
+</code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST /projects/:project_id/labels</code></p>
+
+<h3 id="options">Options</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>string</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>color</td>
+<td>string</td>
+<td>Randomly chosen</td>
+<td>A 6-digit hex color code</td>
+</tr>
+</tbody></table>
+
+<h2 id="retrieve-a-single-label">Retrieve a single label</h2>
+
+<p>Retrieves a label by name.</p>
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/labels/Missing%20info?v=0&amp;api_key=d9763djh1274"</span>
+
+<span class="c"># Example Response</span>
+<span class="o">{</span>
+  <span class="s2">"name"</span>: <span class="s2">"Missing info"</span>,
+  <span class="s2">"color"</span>: <span class="s2">"464b6d"</span>,
+  <span class="s2">"responses_count"</span>: 2
+<span class="o">}</span>
+
+</code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET /projects/:project_id/labels/:name</code></p>
+
+<h2 id="update-a-label">Update a label</h2>
+
+<p>Updates the specified label.</p>
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/labels/ThisIsALabelName?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -X PUT <span class="se">\</span>
+  -d <span class="s1">'
+{
+  "name": "Missing info"
+}
+'</span>
+
+<span class="c"># Example Response</span>
+<span class="o">{</span>
+  <span class="s2">"name"</span>: <span class="s2">"Missing info"</span>,
+  <span class="s2">"color"</span>: <span class="s2">"464b6d"</span>,
+  <span class="s2">"responses_count"</span>: 2
+<span class="o">}</span>
+
+</code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">PUT /projects/:project_id/labels/:name</code></p>
+
+<h2 id="delete-a-label">Delete a label</h2>
+
+<p>Deletes a label by name.</p>
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/labels/Missing%20info?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -X DELETE
+
+<span class="c"># Example Response</span>
+Status: 204 No Content
+</code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">DELETE /projects/:project_id/labels/:name</code></p>

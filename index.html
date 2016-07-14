@@ -6,19 +6,92 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>Screendoor API</title>
 
-    <link href="stylesheets/screen.css" rel="stylesheet" type="text/css" media="screen" />
-    <link href="stylesheets/print.css" rel="stylesheet" type="text/css" media="print" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-      <script src="javascripts/all.js" type="text/javascript"></script>
-
-      <script>
-        $(function() {
-          setupLanguages(["shell"]);
-        });
-      </script>
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #f8f8f2;
+  background-color: #272822;
+}
+.highlight .err {
+  color: #151515;
+  background-color: #ac4142;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #505050;
+}
+.highlight .cp {
+  color: #f4bf75;
+}
+.highlight .nt {
+  color: #f4bf75;
+}
+.highlight .o, .highlight .ow {
+  color: #d0d0d0;
+}
+.highlight .p, .highlight .pi {
+  color: #d0d0d0;
+}
+.highlight .gi {
+  color: #90a959;
+}
+.highlight .gd {
+  color: #ac4142;
+}
+.highlight .gh {
+  color: #6a9fb5;
+  background-color: #151515;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #aa759f;
+}
+.highlight .kc {
+  color: #d28445;
+}
+.highlight .kt {
+  color: #d28445;
+}
+.highlight .kd {
+  color: #d28445;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #90a959;
+}
+.highlight .sr {
+  color: #75b5aa;
+}
+.highlight .si {
+  color: #8f5536;
+}
+.highlight .se {
+  color: #8f5536;
+}
+.highlight .nn {
+  color: #f4bf75;
+}
+.highlight .nc {
+  color: #f4bf75;
+}
+.highlight .no {
+  color: #f4bf75;
+}
+.highlight .na {
+  color: #6a9fb5;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #90a959;
+}
+.highlight .ss {
+  color: #90a959;
+}
+    </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index">
+  <body class="index" data-languages="[&quot;shell&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -58,7 +131,7 @@
 
 <h2 id="pagination">Pagination</h2>
 
-<pre><code class="highlight shell">curl --include <span class="s2">"https://screendoor.dobt.co/api/sites/1/projects?page=5&amp;v=0&amp;api_key=d9763djh1274"</span>
+<pre class="highlight shell"><code>curl --include <span class="s2">"https://screendoor.dobt.co/api/sites/1/projects?page=5&amp;v=0&amp;api_key=d9763djh1274"</span>
 
 <span class="c"># Example Response</span>
 HTTP/1.1 200 OK
@@ -92,11 +165,11 @@ Total: 4321
 
 <h1 id="project-forms">Project forms</h1>
 
-<h2 id="list-a-project&#39;s-response-fields">List a project&rsquo;s response fields</h2>
+<h2 id="list-a-project-39-s-response-fields">List a project&rsquo;s response fields</h2>
 
 <p>Returns a list of response fields to a project with the given <code class="prettyprint">project_id</code>.</p>
 
-<pre><code class="highlight shell">curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/response_fields?v=0&amp;api_key=d9763djh1274"</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/response_fields?v=0&amp;api_key=d9763djh1274"</span>
 
 <span class="c"># Example Response</span>
 <span class="o">[</span>
@@ -128,7 +201,7 @@ Total: 4321
 
 <p>Adds a response field to a project&rsquo;s form.</p>
 
-<pre><code class="highlight shell">curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/response_fields?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/response_fields?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -X POST <span class="se">\</span>
   -d <span class="s1">'
@@ -167,7 +240,7 @@ Total: 4321
 
 <p>Updates the specified response field by assigning values to the keys of the <code class="prettyprint">Response Field</code> hash. The values of any keys you do not provide will be left unchanged.</p>
 
-<pre><code class="highlight shell">curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/response_fields/235?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/response_fields/235?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -X PUT <span class="se">\</span>
   -d <span class="s1">'
@@ -202,11 +275,11 @@ Total: 4321
 
 <p><code class="prettyprint">PUT /projects/:project_id/response_fields/:response_field_id</code></p>
 
-<h2 id="batch-update-a-project&#39;s-form">Batch-update a project&rsquo;s form</h2>
+<h2 id="batch-update-a-project-39-s-form">Batch-update a project&rsquo;s form</h2>
 
 <p>Batch-updates the form for a project. Any response fields that don&rsquo;t exist will be added, and any existing fields that aren&rsquo;t present in the request body will be destroyed.</p>
 
-<pre><code class="highlight shell">curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/response_fields/batch?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/response_fields/batch?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -X POST <span class="se">\</span>
   -d <span class="s1">'
@@ -273,7 +346,7 @@ Total: 4321
 
 <p>Deletes a response field. Note that you will lose any responses to this field.</p>
 
-<pre><code class="highlight shell">curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/response_fields/5?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/response_fields/5?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -X DELETE
 
@@ -287,11 +360,11 @@ Status: 204 No Content
 
 <h1 id="projects">Projects</h1>
 
-<h2 id="list-a-site&#39;s-projects">List a site&rsquo;s projects</h2>
+<h2 id="list-a-site-39-s-projects">List a site&rsquo;s projects</h2>
 
 <p>You can see a list of the projects belonging to a specific site.</p>
 
-<pre><code class="highlight shell">curl <span class="s2">"https://screendoor.dobt.co/api/sites/1/projects?v=0&amp;api_key=d9763djh1274"</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/sites/1/projects?v=0&amp;api_key=d9763djh1274"</span>
 
 <span class="c"># Example Response</span>
 <span class="o">[</span>
@@ -333,7 +406,7 @@ Status: 204 No Content
 
 <p>Creates a new project.</p>
 
-<pre><code class="highlight shell">curl <span class="s2">"https://screendoor.dobt.co/api/sites/1/projects?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/sites/1/projects?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -X POST <span class="se">\</span>
   -d <span class="s1">'
@@ -382,7 +455,7 @@ Status: 204 No Content
 
 <p>Retrieves the details of a specified project.</p>
 
-<pre><code class="highlight shell">curl <span class="s2">"https://screendoor.dobt.co/api/sites/1/projects/1?v=0&amp;api_key=d9763djh1274"</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/sites/1/projects/1?v=0&amp;api_key=d9763djh1274"</span>
 
 <span class="c"># Example Response</span>
 <span class="o">{</span>
@@ -423,7 +496,7 @@ Status: 204 No Content
 
 <p>Updates the specified project by assigning values to the keys of the <code class="prettyprint">Project</code> hash. The values of any keys you do not provide will be left unchanged.</p>
 
-<pre><code class="highlight shell">curl <span class="s2">"https://screendoor.dobt.co/api/sites/1/projects/1?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/sites/1/projects/1?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -X PUT <span class="se">\</span>
   -d <span class="s1">'
@@ -472,7 +545,7 @@ Status: 204 No Content
 
 <p>Deletes a project.</p>
 
-<pre><code class="highlight shell">curl <span class="s2">"https://screendoor.dobt.co/api/sites/1/projects/1?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/sites/1/projects/1?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -X DELETE
 
@@ -484,13 +557,300 @@ Status: 204 No Content
 
 <p><code class="prettyprint">DELETE /sites/:site_id/projects/:project_id</code></p>
 
+<h1 id="project-statuses">Project statuses</h1>
+
+<h2 id="list-a-project-39-s-statuses">List a project&rsquo;s statuses</h2>
+
+<p>Returns a list of statuses belonging to a specified project.</p>
+
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/statuses?v=0&amp;api_key=d9763djh1274"</span>
+
+<span class="c"># Example Response</span>
+<span class="o">[</span>
+<span class="o">{</span>
+  <span class="s2">"name"</span>: <span class="s2">"Open"</span>,
+  <span class="s2">"responses_count"</span>: 10
+<span class="o">}</span>
+<span class="o">]</span>
+</code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET /projects/:project_id/statuses</code></p>
+
+<h2 id="create-a-status">Create a status</h2>
+
+<p>Creates a status for the specified project.</p>
+
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/statuses?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -d <span class="s1">'
+{
+  "name": "Open"
+}
+'</span>
+
+<span class="c"># Example Response</span>
+<span class="o">{</span>
+  <span class="s2">"name"</span>: <span class="s2">"Open"</span>,
+  <span class="s2">"responses_count"</span>: 10
+<span class="o">}</span>
+
+</code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST /projects/:project_id/statuses</code></p>
+
+<h3 id="options">Options</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>string</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="retrieve-a-single-status">Retrieve a single status</h2>
+
+<p>Retrieves a status by name.</p>
+
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/statuses/Open?v=0&amp;api_key=d9763djh1274"</span>
+
+<span class="c"># Example Response</span>
+<span class="o">{</span>
+  <span class="s2">"name"</span>: <span class="s2">"Open"</span>,
+  <span class="s2">"responses_count"</span>: 10
+<span class="o">}</span>
+
+</code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET /projects/:project_id/statuses/:name</code></p>
+
+<h2 id="update-a-status">Update a status</h2>
+
+<p>Updates the specified status.</p>
+
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/statuses/ThisIsAStatusName?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -X PUT <span class="se">\</span>
+  -d <span class="s1">'
+{
+  "name": "Open"
+}
+'</span>
+
+<span class="c"># Example Response</span>
+<span class="o">{</span>
+  <span class="s2">"name"</span>: <span class="s2">"Open"</span>,
+  <span class="s2">"responses_count"</span>: 10
+<span class="o">}</span>
+
+</code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">PUT /projects/:project_id/statuses/:name</code></p>
+
+<h2 id="reorder-statuses">Reorder statuses</h2>
+
+<p>Sets a new sort order for a project&rsquo;s statuses.</p>
+
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/statuses/reorder?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -d <span class="s1">'
+{
+  "names": ["Open", "Archived"]
+}
+'</span>
+
+<span class="c"># Example Response</span>
+<span class="o">[</span>
+<span class="o">{</span>
+  <span class="s2">"name"</span>: <span class="s2">"Open"</span>,
+  <span class="s2">"responses_count"</span>: 10
+<span class="o">}</span>,
+<span class="o">{</span>
+  <span class="s2">"name"</span>: <span class="s2">"Archived"</span>,
+  <span class="s2">"responses_count"</span>: 0
+<span class="o">}</span>
+<span class="o">]</span>
+</code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST /projects/:project_id/statuses/reorder</code></p>
+
+<h2 id="delete-a-status">Delete a status</h2>
+
+<p>Deletes a status by name. Will return a <code class="prettyprint">400 Bad Request</code> if you try to delete the only status for a project.</p>
+
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/statuses/Open?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -X DELETE
+
+<span class="c"># Example Response</span>
+Status: 204 No Content
+</code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">DELETE /projects/:project_id/statuses/:name</code></p>
+
+<h1 id="project-labels">Project labels</h1>
+
+<h2 id="list-a-project-39-s-labels">List a project&rsquo;s labels</h2>
+
+<p>Returns a list of labels belonging to a specified project.</p>
+
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/labels?v=0&amp;api_key=d9763djh1274"</span>
+
+<span class="c"># Example Response</span>
+<span class="o">[</span>
+<span class="o">{</span>
+  <span class="s2">"name"</span>: <span class="s2">"Missing info"</span>,
+  <span class="s2">"color"</span>: <span class="s2">"464b6d"</span>,
+  <span class="s2">"responses_count"</span>: 2
+<span class="o">}</span>
+<span class="o">]</span>
+</code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET /projects/:project_id/labels</code></p>
+
+<h2 id="create-a-label">Create a label</h2>
+
+<p>Creates a label for the specified project.</p>
+
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/labels?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -d <span class="s1">'
+{
+  "name": "Missing info",
+  "color": "464b6d"
+}
+'</span>
+
+<span class="c"># Example Response</span>
+<span class="o">{</span>
+  <span class="s2">"name"</span>: <span class="s2">"Missing info"</span>,
+  <span class="s2">"color"</span>: <span class="s2">"464b6d"</span>,
+  <span class="s2">"responses_count"</span>: 2
+<span class="o">}</span>
+
+</code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST /projects/:project_id/labels</code></p>
+
+<h3 id="options">Options</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>string</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>color</td>
+<td>string</td>
+<td>Randomly chosen</td>
+<td>A 6-digit hex color code</td>
+</tr>
+</tbody></table>
+
+<h2 id="retrieve-a-single-label">Retrieve a single label</h2>
+
+<p>Retrieves a label by name.</p>
+
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/labels/Missing%20info?v=0&amp;api_key=d9763djh1274"</span>
+
+<span class="c"># Example Response</span>
+<span class="o">{</span>
+  <span class="s2">"name"</span>: <span class="s2">"Missing info"</span>,
+  <span class="s2">"color"</span>: <span class="s2">"464b6d"</span>,
+  <span class="s2">"responses_count"</span>: 2
+<span class="o">}</span>
+
+</code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET /projects/:project_id/labels/:name</code></p>
+
+<h2 id="update-a-label">Update a label</h2>
+
+<p>Updates the specified label.</p>
+
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/labels/ThisIsALabelName?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -X PUT <span class="se">\</span>
+  -d <span class="s1">'
+{
+  "name": "Missing info"
+}
+'</span>
+
+<span class="c"># Example Response</span>
+<span class="o">{</span>
+  <span class="s2">"name"</span>: <span class="s2">"Missing info"</span>,
+  <span class="s2">"color"</span>: <span class="s2">"464b6d"</span>,
+  <span class="s2">"responses_count"</span>: 2
+<span class="o">}</span>
+
+</code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">PUT /projects/:project_id/labels/:name</code></p>
+
+<h2 id="delete-a-label">Delete a label</h2>
+
+<p>Deletes a label by name.</p>
+
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/labels/Missing%20info?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -X DELETE
+
+<span class="c"># Example Response</span>
+Status: 204 No Content
+</code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">DELETE /projects/:project_id/labels/:name</code></p>
+
 <h1 id="responses">Responses</h1>
 
-<h2 id="list-a-project&#39;s-responses">List a project&rsquo;s responses</h2>
+<h2 id="list-a-project-39-s-responses">List a project&rsquo;s responses</h2>
 
 <p>Returns a list of responses to a specified project. Note that in order to retrieve the <code class="prettyprint">assignees</code> or <code class="prettyprint">archived_responses</code> keys in the returned data, you&rsquo;ll need to use the <a href="#retrieve-a-single-response">single response endpoint</a>.</p>
 
-<pre><code class="highlight shell">curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/responses?v=0&amp;api_key=d9763djh1274"</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/responses?v=0&amp;api_key=d9763djh1274"</span>
 
 <span class="c"># Example Response</span>
 <span class="o">[</span>
@@ -542,6 +902,11 @@ Status: 204 No Content
 <td><code class="prettyprint">&quot;asc&quot;</code></td>
 <td>Either <code class="prettyprint">&quot;asc&quot;</code> or <code class="prettyprint">&quot;desc&quot;</code></td>
 </tr>
+<tr>
+<td>trash</td>
+<td><code class="prettyprint">false</code></td>
+<td>Set this to <code class="prettyprint">true</code> to view responses that are in the trash.</td>
+</tr>
 </tbody></table>
 
 <p>In addition to the parameters above, this endpoint accepts the same query parameters as Screendoor&rsquo;s <a href="http://help.dobt.co/articles/screendoor/responses/viewing_a_list_of_responses.html">responses page</a>.</p>
@@ -554,7 +919,7 @@ Status: 204 No Content
 
 <p>Creates a response to the specified project.</p>
 
-<pre><code class="highlight shell">curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/responses?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/responses?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -X POST <span class="se">\</span>
   -d <span class="s1">'
@@ -655,7 +1020,7 @@ Status: 204 No Content
 
 <p>Retrieves a response with the given <code class="prettyprint">:response_id</code>.</p>
 
-<pre><code class="highlight shell">curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/responses/3?v=0&amp;api_key=d9763djh1274"</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/responses/3?v=0&amp;api_key=d9763djh1274"</span>
 
 <span class="c"># Example Response</span>
 <span class="o">{</span>
@@ -726,7 +1091,7 @@ Status: 204 No Content
 
 <p>Updates the specified response.</p>
 
-<pre><code class="highlight shell">curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/responses/2?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/responses/2?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -X PUT <span class="se">\</span>
   -d <span class="s1">'
@@ -807,9 +1172,9 @@ Status: 204 No Content
 
 <h2 id="delete-a-response">Delete a response</h2>
 
-<p>Deletes a response with the given <code class="prettyprint">:response_id</code>.</p>
+<p>Moves the response with the given <code class="prettyprint">:response_id</code> to the trash.</p>
 
-<pre><code class="highlight shell">curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/responses/3?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/responses/3?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -X DELETE
 
@@ -820,6 +1185,60 @@ Status: 204 No Content
 <h3 id="http-request">HTTP Request</h3>
 
 <p><code class="prettyprint">DELETE /projects/:project_id/responses/:response_id</code></p>
+
+<h2 id="recover-a-response">Recover a response</h2>
+
+<p>Recovers the response with the given <code class="prettyprint">:response_id</code> from the trash.</p>
+
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/responses/3/recover?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -X POST
+
+<span class="c"># Example Response</span>
+<span class="o">{</span>
+  <span class="s2">"id"</span>: 3,
+  <span class="s2">"sequential_id"</span>: 3,
+  <span class="s2">"project_id"</span>: 2,
+  <span class="s2">"pretty_id"</span>: <span class="s2">"ykylz0kz293b"</span>,
+  <span class="s2">"submitted_at"</span>: <span class="s2">"2014-05-07T19:19:43.230Z"</span>,
+  <span class="s2">"responses"</span>: <span class="o">{</span>
+      <span class="s2">"1"</span>: <span class="s2">"Vivian Cronin"</span>,
+      <span class="s2">"2"</span>: <span class="s2">"emmanuelle@goyette.co.uk"</span>,
+      <span class="s2">"3"</span>: <span class="s2">"New application for your job on Startuply"</span>,
+      <span class="s2">"4"</span>: <span class="s2">"To Whom it May Concern: I am very interested in working at your company. The widgets you make are AMAZING, and I would love to be a part of it. I have many skills, but the most important ones are my abilities to collect information from people, screen it effectively, select the right options, and follow through with the right options quickly. Plus, I even know what to do with the options we did not select. Adding me to your team means saving time, saving money and getting back to doing the work you love doing.</span><span class="se">\n</span><span class="s2">"</span>,
+      <span class="s2">"5"</span>: <span class="s2">"3"</span>
+  <span class="o">}</span>,
+  <span class="s2">"rating_aggregates"</span>: <span class="o">{}</span>,
+  <span class="s2">"average_rating"</span>: null,
+  <span class="s2">"num_ratings"</span>: 0,
+  <span class="s2">"created_at"</span>: <span class="s2">"2014-05-07T19:19:43.280Z"</span>,
+  <span class="s2">"updated_at"</span>: <span class="s2">"2014-05-07T19:20:51.485Z"</span>,
+  <span class="s2">"status"</span>: <span class="s2">"Starred"</span>,
+  <span class="s2">"labels"</span>: <span class="o">[]</span>,
+  <span class="s2">"user"</span>: null
+<span class="o">}</span>
+
+</code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST /projects/:project_id/responses/:response_id/recover</code></p>
+
+<h2 id="permanently-destroy-a-response">Permanently destroy a response</h2>
+
+<p>Delete a response forever, skipping the trash.</p>
+
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/responses/3/delete_forever?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -X DELETE
+
+<span class="c"># Example Response</span>
+Status: 204 No Content
+</code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">DELETE /projects/:project_id/responses/:response_id/delete_forever</code></p>
 
 <h2 id="spec-for-the-response-hash">Spec for the response hash</h2>
 
@@ -901,13 +1320,249 @@ Status: 204 No Content
 
 <p>In order to include a file in the <a href="#spec-for-the-response-hash">response fields hash</a>, you must first upload it using the following endpoint.</p>
 
-<pre><code class="highlight shell">curl <span class="s2">"https://screendoor.dobt.co/api/form_renderer/file?v=0&amp;response_field_id=123"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/form_renderer/file?v=0&amp;response_field_id=123"</span> <span class="se">\</span>
   -X POST <span class="se">\</span>
   -F <span class="s2">"file=@/path/to/file"</span>
 
 <span class="c"># Example Response</span>
-<span class="o">{</span><span class="s2">"ok"</span>:true,<span class="s2">"file_id"</span>:<span class="s2">"b42Unp-Oj_qeyCWNDaTBXr8nygNq5x4-"</span><span class="o">}</span>
+<span class="o">{</span>
+  <span class="s2">"ok"</span>:true,
+  <span class="s2">"file_id"</span>:<span class="s2">"b42Unp-Oj_qeyCWNDaTBXr8nygNq5x4-"</span>
+<span class="o">}</span>
 </code></pre>
+
+<h1 id="response-labels">Response labels</h1>
+
+<h2 id="list-a-responses-39-labels">List a responses&rsquo; labels</h2>
+
+<p>Returns a list of labels belonging to a specified project.</p>
+
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/responses/3/labels?v=0&amp;api_key=d9763djh1274"</span>
+
+<span class="c"># Example Response</span>
+<span class="o">[</span>
+<span class="o">{</span>
+  <span class="s2">"name"</span>: <span class="s2">"Missing info"</span>,
+  <span class="s2">"color"</span>: <span class="s2">"464b6d"</span>
+<span class="o">}</span>
+<span class="o">]</span>
+</code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET /responses/:response_id/labels</code></p>
+
+<h2 id="add-one-or-more-labels-to-a-response">Add one or more labels to a response</h2>
+
+<p>The labels must already exist inside the project.</p>
+
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/responses/3/labels?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -d <span class="s1">'
+{
+  "labels": ["Missing info", "Top quality"]
+}
+'</span>
+
+<span class="c"># Example Response</span>
+<span class="o">[</span>
+  <span class="o">{</span>
+    <span class="s2">"name"</span>: <span class="s2">"Missing info"</span>,
+    <span class="s2">"color"</span>: <span class="s2">"464b6d"</span>
+  <span class="o">}</span>,
+  <span class="o">{</span>
+    <span class="s2">"name"</span>: <span class="s2">"Top quality"</span>,
+    <span class="s2">"color"</span>: <span class="s2">"464b6d"</span>
+  <span class="o">}</span>
+<span class="o">]</span>
+</code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST /responses/:response_id/labels</code></p>
+
+<h2 id="remove-a-label-from-a-response">Remove a label from a response</h2>
+
+<p>Removes a label from a response by name. If the response does not have that label applied, a <code class="prettyprint">404</code> will be returned.</p>
+
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/responses/3/labels/Missing%20info?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -X DELETE
+
+<span class="c"># Example Response</span>
+Status: 204 No Content
+</code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">DELETE /responses/:response_id/labels/:name</code></p>
+
+<h2 id="replace-labels-for-a-response">Replace labels for a response</h2>
+
+<p>The labels must already exist inside the project.</p>
+
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/responses/3/labels?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -X PUT <span class="se">\</span>
+  -d <span class="s1">'
+{
+  "labels": ["Missing info"]
+}
+'</span>
+
+<span class="c"># Example Response</span>
+<span class="o">[</span>
+<span class="o">{</span>
+  <span class="s2">"name"</span>: <span class="s2">"Missing info"</span>,
+  <span class="s2">"color"</span>: <span class="s2">"464b6d"</span>
+<span class="o">}</span>
+<span class="o">]</span>
+</code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">PUT /responses/:response_id/labels</code></p>
+
+<h2 id="remove-all-labels-from-a-response">Remove all labels from a response</h2>
+
+<p>Removes all labels from a response.</p>
+
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/responses/3/labels?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -X DELETE
+
+<span class="c"># Example Response</span>
+Status: 204 No Content
+</code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">DELETE /responses/:response_id/labels</code></p>
+
+<h1 id="response-assignments">Response assignments</h1>
+
+<p>A response can be assigned to many teams and/or users. An &ldquo;assignment parameter&rdquo; takes the format of <code class="prettyprint">:type,:id</code>, where type is either <code class="prettyprint">ProjectTeam</code> or <code class="prettyprint">User</code>, and <code class="prettyprint">id</code> is the identifier for that record.</p>
+
+<p>For example, to reference User #9, we would use the parameter <code class="prettyprint">User,9</code>.</p>
+
+<h2 id="list-a-responses-39-assignments">List a responses&rsquo; assignments</h2>
+
+<p>Returns a list of assignees for the specified response.</p>
+
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/responses/3/assignees?v=0&amp;api_key=d9763djh1274"</span>
+
+<span class="c"># Example Response</span>
+<span class="o">[</span>
+<span class="o">{</span>
+  <span class="s2">"type"</span>: <span class="s2">"ProjectTeam"</span>,
+  <span class="s2">"id"</span>: <span class="s2">"9"</span>,
+  <span class="s2">"name"</span>: <span class="s2">"HR Monitors"</span>
+<span class="o">}</span>
+,
+<span class="o">{</span>
+  <span class="s2">"type"</span>: <span class="s2">"User"</span>,
+  <span class="s2">"id"</span>: <span class="s2">"4"</span>,
+  <span class="s2">"name"</span>: <span class="s2">"Richard Ayoade"</span>
+<span class="o">}</span>
+<span class="o">]</span>
+</code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET /responses/:response_id/assignments</code></p>
+
+<h2 id="add-one-or-more-assignees-to-a-response">Add one or more assignees to a response</h2>
+
+<p>The teams and/or users must already exist inside of the project.</p>
+
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/responses/3/assignments?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -d <span class="s1">'
+{
+  "assignees": ["ProjectTeam,9", "User,4"]
+}
+'</span>
+
+<span class="c"># Example Response</span>
+<span class="o">[</span>
+<span class="o">{</span>
+  <span class="s2">"type"</span>: <span class="s2">"ProjectTeam"</span>,
+  <span class="s2">"id"</span>: <span class="s2">"9"</span>,
+  <span class="s2">"name"</span>: <span class="s2">"HR Monitors"</span>
+<span class="o">}</span>
+,
+<span class="o">{</span>
+  <span class="s2">"type"</span>: <span class="s2">"User"</span>,
+  <span class="s2">"id"</span>: <span class="s2">"4"</span>,
+  <span class="s2">"name"</span>: <span class="s2">"Richard Ayoade"</span>
+<span class="o">}</span>
+<span class="o">]</span>
+</code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST /responses/:response_id/assignments</code></p>
+
+<h2 id="remove-an-assignment-from-a-response">Remove an assignment from a response</h2>
+
+<p>Removes an assignment from a response by the &ldquo;assignment parameter.&rdquo; If the response does not have that user or team assigned, a <code class="prettyprint">404</code> will be returned.</p>
+
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/responses/3/assignments/ProjectTeam,9?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -X DELETE
+
+<span class="c"># Example Response</span>
+Status: 204 No Content
+</code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">DELETE /responses/:response_id/assignments/:assignment_parameter</code></p>
+
+<h2 id="replace-assignments-for-a-response">Replace assignments for a response</h2>
+
+<p>The teams and/or users must already exist inside of the project.</p>
+
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/responses/3/assignments?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -X PUT <span class="se">\</span>
+  -d <span class="s1">'
+{
+  "assignees": ["ProjectTeam,9"]
+}
+'</span>
+
+<span class="c"># Example Response</span>
+<span class="o">[</span>
+<span class="o">{</span>
+  <span class="s2">"type"</span>: <span class="s2">"ProjectTeam"</span>,
+  <span class="s2">"id"</span>: <span class="s2">"9"</span>,
+  <span class="s2">"name"</span>: <span class="s2">"HR Monitors"</span>
+<span class="o">}</span>
+<span class="o">]</span>
+</code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">PUT /responses/:response_id/assignments</code></p>
+
+<h2 id="remove-all-assignments-from-a-response">Remove all assignments from a response</h2>
+
+<p>Removes all assignments from a response.</p>
+
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/responses/3/assignments?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -X DELETE
+
+<span class="c"># Example Response</span>
+Status: 204 No Content
+</code></pre>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">DELETE /responses/:response_id/assignments</code></p>
 
       </div>
       <div class="dark-box">
