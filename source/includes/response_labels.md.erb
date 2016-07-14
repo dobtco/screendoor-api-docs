@@ -1,0 +1,105 @@
+# Response labels
+
+## List a responses' labels
+
+Returns a list of labels belonging to a specified project.
+
+```shell
+curl "https://screendoor.dobt.co/api/responses/3/labels?v=0&api_key=d9763djh1274"
+
+# Example Response
+[
+<%= partial 'resources/response_label.json' %>]
+```
+
+### HTTP Request
+
+`GET /responses/:response_id/labels`
+
+## Add one or more labels to a response
+
+The labels must already exist inside the project.
+
+```shell
+curl "https://screendoor.dobt.co/api/responses/3/labels?v=0&api_key=d9763djh1274" \
+  -H 'Content-Type: application/json' \
+  -X POST \
+  -d '
+{
+  "labels": ["Missing info", "Top quality"]
+}
+'
+
+# Example Response
+[
+  {
+    "name": "Missing info",
+    "color": "464b6d"
+  },
+  {
+    "name": "Top quality",
+    "color": "464b6d"
+  }
+]
+```
+
+### HTTP Request
+
+`POST /responses/:response_id/labels`
+
+## Remove a label from a response
+
+Removes a label from a response by name. If the response does not have that label applied, a `404` will be returned.
+
+```shell
+curl "https://screendoor.dobt.co/api/responses/3/labels/Missing%20info?v=0&api_key=d9763djh1274" \
+  -H 'Content-Type: application/json' \
+  -X DELETE
+
+# Example Response
+Status: 204 No Content
+```
+
+### HTTP Request
+
+`DELETE /responses/:response_id/labels/:name`
+
+## Replace labels for a response
+
+The labels must already exist inside the project.
+
+```shell
+curl "https://screendoor.dobt.co/api/responses/3/labels?v=0&api_key=d9763djh1274" \
+  -H 'Content-Type: application/json' \
+  -X PUT \
+  -d '
+{
+  "labels": ["Missing info"]
+}
+'
+
+# Example Response
+[
+<%= partial 'resources/response_label.json' %>]
+```
+
+### HTTP Request
+
+`PUT /responses/:response_id/labels`
+
+## Remove all labels from a response
+
+Removes all labels from a response.
+
+```shell
+curl "https://screendoor.dobt.co/api/responses/3/labels?v=0&api_key=d9763djh1274" \
+  -H 'Content-Type: application/json' \
+  -X DELETE
+
+# Example Response
+Status: 204 No Content
+```
+
+### HTTP Request
+
+`DELETE /responses/:response_id/labels`
