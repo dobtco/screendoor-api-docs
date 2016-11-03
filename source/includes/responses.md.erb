@@ -106,7 +106,7 @@ curl "https://screendoor.dobt.co/api/projects/2/responses/2?v=0&api_key=d9763djh
 {
   "response_fields": {
     "1": "Veronica Cronin",
-    "2": { "0": "on", "1": false }
+    "2": "emmanuelle@goyette.co.uk"
   },
   "status": "Accepted"
 }
@@ -188,20 +188,21 @@ In order to encode a response to a Screendoor form, you must use the format defi
 | --- | --- | --- |
 | Text | `"foo"` |
 | Paragraph | `"I have many skills, but the most important ones are my abilities to collect information from people, screen it effectively, select the right options, and follow through with the right options quickly."` |
-| Checkboxes | `{ "0": "on", "1": false }` <br><br>or with "other" selected:<br><br> `{ "0": false, "1": "on", "other_checkbox": "on", "other": "Something else" }` |
-| Multiple Choice | `"Choice #1"` |
+| Choose Many (Checkboxes) | `{ "checked": ["Choice #1", "Choice #2"], "other_checked": true, "other_text": "foobar!" }` |
+| Choose One (Radio) | `{ "checked": ["Choice #1"], "other_checked": true, "other_text": "foobar!" }` |
+| Confirm | `true` |
 | Dropdown | `"Choice #2"` |
 | Date | `{ "month": "2", "day": "15", "year": "2015"}` |
 | Time | `{ "am_pm": "PM", "hours": "6", "minutes": "01", "seconds": "30"}` |
 | Phone | `"4151234567"` |
 | Email | `"foo@bar.com"` |
 | Address | `{ "country": "US", "street": "123 Main St.", "city": "Pleasantville", "state": "Illinois" }` |
-| Table | `{ "0": ["col 1 row 1", "col 1 row 2"], "1": ["col 2 row 1", "col 2 row 2"] }` |
+| Table | `{ "column one": ["row 1", "row 2"], "column two": ["row 1", "row 2"] }` |
 | Numeric | `"123.45"` |
 | Website | `"http://www.google.com"` |
 | Price | `{ "dollars": "12", "cents": "99" }` |
-| File | `"b42Unp-Oj_qeyCWNDaTBXr8nygNq5x4-"`<br><br>To get this ID, first upload a file using the endpoint described [below](#uploading-files). |
-| Map Marker | `{ "lat": "40.7700118", "lng": "-73.9800453" }` |
+| File | `[{ "id": "b42Unp-Oj_qeyCWNDaTBXr8nygNq5x4-" }, { "id": "another_file_id" }]`<br><br>To get this ID, first upload a file using the endpoint described [below](#uploading-files). |
+| Map Marker | `[40.7700118", -73.9800453]` |
 
 ## Uploading files
 
