@@ -248,7 +248,7 @@
 {
   "response_fields": {
     "1": "Veronica Cronin",
-    "2": { "0": "on", "1": false }
+    "2": "emmanuelle@goyette.co.uk"
   },
   "status": "Accepted"
 }
@@ -406,12 +406,16 @@ Status: 204 No Content
 <td><code class="prettyprint">&quot;I have many skills, but the most important ones are my abilities to collect information from people, screen it effectively, select the right options, and follow through with the right options quickly.&quot;</code></td>
 </tr>
 <tr>
-<td>Checkboxes</td>
-<td><code class="prettyprint">{ &quot;0&quot;: &quot;on&quot;, &quot;1&quot;: false }</code> <br><br>or with &ldquo;other&rdquo; selected:<br><br> <code class="prettyprint">{ &quot;0&quot;: false, &quot;1&quot;: &quot;on&quot;, &quot;other_checkbox&quot;: &quot;on&quot;, &quot;other&quot;: &quot;Something else&quot; }</code></td>
+<td>Choose Many (Checkboxes)</td>
+<td><code class="prettyprint">{ &quot;checked&quot;: [&quot;Choice #1&quot;, &quot;Choice #2&quot;], &quot;other_checked&quot;: true, &quot;other_text&quot;: &quot;foobar!&quot; }</code></td>
 </tr>
 <tr>
-<td>Multiple Choice</td>
-<td><code class="prettyprint">&quot;Choice #1&quot;</code></td>
+<td>Choose One (Radio)</td>
+<td><code class="prettyprint">{ &quot;checked&quot;: [&quot;Choice #1&quot;], &quot;other_checked&quot;: true, &quot;other_text&quot;: &quot;foobar!&quot; }</code></td>
+</tr>
+<tr>
+<td>Confirm</td>
+<td><code class="prettyprint">true</code></td>
 </tr>
 <tr>
 <td>Dropdown</td>
@@ -439,7 +443,7 @@ Status: 204 No Content
 </tr>
 <tr>
 <td>Table</td>
-<td><code class="prettyprint">{ &quot;0&quot;: [&quot;col 1 row 1&quot;, &quot;col 1 row 2&quot;], &quot;1&quot;: [&quot;col 2 row 1&quot;, &quot;col 2 row 2&quot;] }</code></td>
+<td><code class="prettyprint">{ &quot;column one&quot;: [&quot;row 1&quot;, &quot;row 2&quot;], &quot;column two&quot;: [&quot;row 1&quot;, &quot;row 2&quot;] }</code></td>
 </tr>
 <tr>
 <td>Numeric</td>
@@ -455,11 +459,11 @@ Status: 204 No Content
 </tr>
 <tr>
 <td>File</td>
-<td><code class="prettyprint">&quot;b42Unp-Oj_qeyCWNDaTBXr8nygNq5x4-&quot;</code><br><br>To get this ID, first upload a file using the endpoint described <a href="#uploading-files">below</a>.</td>
+<td><code class="prettyprint">[{ &quot;id&quot;: &quot;b42Unp-Oj_qeyCWNDaTBXr8nygNq5x4-&quot; }, { &quot;id&quot;: &quot;another_file_id&quot; }]</code><br><br>To get this ID, first upload a file using the endpoint described <a href="#uploading-files">below</a>.</td>
 </tr>
 <tr>
 <td>Map Marker</td>
-<td><code class="prettyprint">{ &quot;lat&quot;: &quot;40.7700118&quot;, &quot;lng&quot;: &quot;-73.9800453&quot; }</code></td>
+<td><code class="prettyprint">[40.7700118&quot;, -73.9800453]</code></td>
 </tr>
 </tbody></table>
 

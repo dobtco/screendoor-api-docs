@@ -1,189 +1,71 @@
 <h1 id="project-forms">Project forms</h1>
 
-<h2 id="list-a-project-39-s-response-fields">List a project&rsquo;s response fields</h2>
+<h2 id="show-a-project-39-s-form">Show a project&rsquo;s form</h2>
 
-<p>Returns a list of response fields to a project with the given <code class="prettyprint">project_id</code>.</p>
-<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/response_fields?v=0&amp;api_key=d9763djh1274"</span>
+<p>Returns the form for the given <code class="prettyprint">project_id</code>.</p>
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/form?v=0&amp;api_key=d9763djh1274"</span>
 
 <span class="c"># Example Response</span>
 <span class="o">[</span>
-<span class="o">{</span>
-  <span class="s2">"id"</span>: 235,
-  <span class="s2">"form_id"</span>: 42,
-  <span class="s2">"label"</span>: <span class="s2">"Your Approach"</span>,
-  <span class="s2">"field_options"</span>: <span class="o">{</span>
-    <span class="s2">"size"</span>: <span class="s2">"medium"</span>,
-    <span class="s2">"description"</span>: <span class="s2">"How would you complete this project?"</span>
-  <span class="o">}</span>,
-  <span class="s2">"sort_order"</span>: 0,
-  <span class="s2">"required"</span>: <span class="nb">true</span>,
-  <span class="s2">"blind"</span>: <span class="nb">false</span>,
-  <span class="s2">"admin_only"</span>: <span class="nb">false</span>,
-  <span class="s2">"created_at"</span>: <span class="s2">"2014-07-29T23:42:52.319Z"</span>,
-  <span class="s2">"updated_at"</span>: <span class="s2">"2014-07-29T23:42:52.319Z"</span>,
-  <span class="s2">"field_type"</span>: <span class="s2">"paragraph"</span>,
-  <span class="s2">"cid"</span>: null
-<span class="o">}</span>
+<span class="o">[</span>
+  <span class="o">{</span>
+    <span class="s2">"id"</span>: <span class="s2">"ak01k23k"</span>,
+    <span class="s2">"type"</span>: <span class="s2">"field"</span>,
+    <span class="s2">"field_type"</span>: <span class="s2">"paragraph"</span>,
+    <span class="s2">"label"</span>: <span class="s2">"Your Approach"</span>
+  <span class="o">}</span>
+<span class="o">]</span>
 <span class="o">]</span>
 </code></pre>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET /projects/:project_id/response_fields</code></p>
+<p><code class="prettyprint">GET /projects/:project_id/form</code></p>
 
-<h2 id="add-a-response-field">Add a response field</h2>
+<h2 id="update-a-project-39-s-form">Update a project&rsquo;s form</h2>
 
-<p>Adds a response field to a project&rsquo;s form.</p>
-<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/response_fields?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
-  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-  -X POST <span class="se">\</span>
-  -d <span class="s1">'
-{
-  "field_type": "text",
-  "label": "Your Approach"
-}
-'</span>
-
-<span class="c"># Example Response</span>
-<span class="o">{</span>
-  <span class="s2">"id"</span>: 235,
-  <span class="s2">"form_id"</span>: 42,
-  <span class="s2">"label"</span>: <span class="s2">"Your Approach"</span>,
-  <span class="s2">"field_options"</span>: <span class="o">{</span>
-    <span class="s2">"size"</span>: <span class="s2">"medium"</span>,
-    <span class="s2">"description"</span>: <span class="s2">"How would you complete this project?"</span>
-  <span class="o">}</span>,
-  <span class="s2">"sort_order"</span>: 0,
-  <span class="s2">"required"</span>: <span class="nb">true</span>,
-  <span class="s2">"blind"</span>: <span class="nb">false</span>,
-  <span class="s2">"admin_only"</span>: <span class="nb">false</span>,
-  <span class="s2">"created_at"</span>: <span class="s2">"2014-07-29T23:42:52.319Z"</span>,
-  <span class="s2">"updated_at"</span>: <span class="s2">"2014-07-29T23:42:52.319Z"</span>,
-  <span class="s2">"field_type"</span>: <span class="s2">"paragraph"</span>,
-  <span class="s2">"cid"</span>: null
-<span class="o">}</span>
-
-</code></pre>
-
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">POST /projects/:project_id/response_fields</code></p>
-
-<h2 id="update-a-response-field">Update a response field</h2>
-
-<p>Updates the specified response field by assigning values to the keys of the <code class="prettyprint">Response Field</code> hash. The values of any keys you do not provide will be left unchanged.</p>
-<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/response_fields/235?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
-  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<p>Updates the project&rsquo;s form.</p>
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/form?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
   -X PUT <span class="se">\</span>
-  -d <span class="s1">'
+  -d <span class="nv">field_data</span><span class="o">=</span><span class="s1">'[
 {
+  "id": "ak01k23k",
+  "type": "field",
   "field_type": "text",
   "label": "Your Strategy"
 }
-'</span>
-
-<span class="c"># Example Response</span>
-<span class="o">{</span>
-  <span class="s2">"id"</span>: 235,
-  <span class="s2">"form_id"</span>: 42,
-  <span class="s2">"label"</span>: <span class="s2">"Your Approach"</span>,
-  <span class="s2">"field_options"</span>: <span class="o">{</span>
-    <span class="s2">"size"</span>: <span class="s2">"medium"</span>,
-    <span class="s2">"description"</span>: <span class="s2">"How would you complete this project?"</span>
-  <span class="o">}</span>,
-  <span class="s2">"sort_order"</span>: 0,
-  <span class="s2">"required"</span>: <span class="nb">true</span>,
-  <span class="s2">"blind"</span>: <span class="nb">false</span>,
-  <span class="s2">"admin_only"</span>: <span class="nb">false</span>,
-  <span class="s2">"created_at"</span>: <span class="s2">"2014-07-29T23:42:52.319Z"</span>,
-  <span class="s2">"updated_at"</span>: <span class="s2">"2014-07-29T23:42:52.319Z"</span>,
-  <span class="s2">"field_type"</span>: <span class="s2">"paragraph"</span>,
-  <span class="s2">"cid"</span>: null
-<span class="o">}</span>
-
-</code></pre>
-
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">PUT /projects/:project_id/response_fields/:response_field_id</code></p>
-
-<h2 id="batch-update-a-project-39-s-form">Batch-update a project&rsquo;s form</h2>
-
-<p>Batch-updates the form for a project. Any response fields that don&rsquo;t exist will be added, and any existing fields that aren&rsquo;t present in the request body will be destroyed.</p>
-<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/response_fields/batch?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
-  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-  -X POST <span class="se">\</span>
-  -d <span class="s1">'
-{
-  "response_fields": [
-    {
-      "id": 235,
-      "label": "Your Approach",
-      "field_options": {
-        "size": "medium",
-        "description": "How would you complete this project?"
-      },
-      "required": true,
-      "blind": false,
-      "admin_only": false,
-      "field_type": "paragraph"
-    },
-    {
-      "label": "Previous Work",
-      "field_options": {
-        "size": "medium",
-        "description": "What qualifies you to work on this project?"
-      },
-      "required": true,
-      "field_type": "paragraph"
-    }
-  ]
-}
-'</span>
+]'</span>
 
 <span class="c"># Example Response</span>
 <span class="o">[</span>
   <span class="o">{</span>
-    <span class="s2">"id"</span>: 235,
-    <span class="s2">"label"</span>: <span class="s2">"Your Approach"</span>,
-    <span class="s2">"field_options"</span>: <span class="o">{</span>
-      <span class="s2">"size"</span>: <span class="s2">"medium"</span>,
-      <span class="s2">"description"</span>: <span class="s2">"How would you complete this project?"</span>
-    <span class="o">}</span>,
-    <span class="s2">"required"</span>: <span class="nb">true</span>,
-    <span class="s2">"blind"</span>: <span class="nb">false</span>,
-    <span class="s2">"admin_only"</span>: <span class="nb">false</span>,
-    <span class="s2">"field_type"</span>: <span class="s2">"paragraph"</span>
-  <span class="o">}</span>,
-  <span class="o">{</span>
-    <span class="s2">"id"</span>: 236,
-    <span class="s2">"label"</span>: <span class="s2">"Previous Work"</span>,
-    <span class="s2">"field_options"</span>: <span class="o">{</span>
-      <span class="s2">"size"</span>: <span class="s2">"medium"</span>,
-      <span class="s2">"description"</span>: <span class="s2">"What qualifies you to work on this project?"</span>
-    <span class="o">}</span>,
-    <span class="s2">"required"</span>: <span class="nb">true</span>,
-    <span class="s2">"field_type"</span>: <span class="s2">"paragraph"</span>
-  <span class="o">}</span>,
-  ...
+    <span class="s2">"id"</span>: <span class="s2">"ak01k23k"</span>,
+    <span class="s2">"type"</span>: <span class="s2">"field"</span>,
+    <span class="s2">"field_type"</span>: <span class="s2">"paragraph"</span>,
+    <span class="s2">"label"</span>: <span class="s2">"Your Approach"</span>
+  <span class="o">}</span>
 <span class="o">]</span>
+
 </code></pre>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST /projects/:project_id/response_fields/batch</code></p>
+<p><code class="prettyprint">PUT /projects/:project_id/form</code></p>
 
-<h2 id="delete-a-response-field">Delete a response field</h2>
+<h3 id="options">Options</h3>
 
-<p>Deletes a response field. Note that you will lose any responses to this field.</p>
-<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/response_fields/5?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
-  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-  -X DELETE
-
-<span class="c"># Example Response</span>
-Status: 204 No Content
-</code></pre>
-
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">DELETE /projects/:project_id/response_fields/:response_field_id</code></p>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>field_data</td>
+<td>JSON-encoded Array</td>
+<td></td>
+<td>Sorry, the form schema is not yet documented.</td>
+</tr>
+</tbody></table>
