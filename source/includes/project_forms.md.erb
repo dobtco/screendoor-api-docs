@@ -8,8 +8,7 @@ Returns the form for the given `project_id`.
 curl "https://screendoor.dobt.co/api/projects/2/form?v=0&api_key=d9763djh1274"
 
 # Example Response
-[
-<%= partial 'resources/form.json' %>]
+<%= partial 'resources/form.json' %>
 ```
 
 ### HTTP Request
@@ -45,3 +44,77 @@ curl "https://screendoor.dobt.co/api/projects/2/form?v=0&api_key=d9763djh1274" \
 | Parameter | Type | Default | Description |
 | --- | --- | --- | --- |
 | field_data | JSON-encoded Array | | Sorry, the form schema is not yet documented. |
+
+## Add a field to the form
+
+Adds a single field to the project's form. You can manually specify an `id` in the `field_data` hash, or you can leave it blank to have one created for you.
+
+```shell
+curl "https://screendoor.dobt.co/api/projects/2/form/fields?v=0&api_key=d9763djh1274" \
+  -X POST \
+  -d position=0 \
+  -d field_data='
+{
+  "type": "field",
+  "field_type": "text",
+  "label": "Your Strategy"
+}'
+
+# Example Response
+<%= partial 'resources/form.json' %>
+```
+
+### HTTP Request
+
+`POST /projects/:project_id/form/fields`
+
+### Options
+
+| Parameter | Type | Default | Description |
+| --- | --- | --- | --- |
+| field_data | JSON-encoded Hash | | Sorry, the form schema is not yet documented. |
+| position | Integer | | The zero-indexed position where this field should be inserted in the form. By default, it will be inserted as the last field in the form. |
+
+## Update a field in the form
+
+Updates a single field in the project's form.
+
+```shell
+curl "https://screendoor.dobt.co/api/projects/2/form/fields/ak01k23k?v=0&api_key=d9763djh1274" \
+  -X PUT \
+  -d field_data='
+{
+  "type": "field",
+  "field_type": "text",
+  "label": "Your Strategy"
+}'
+
+# Example Response
+<%= partial 'resources/form.json' %>
+```
+
+### HTTP Request
+
+`PUT /projects/:project_id/form/fields/:id`
+
+### Options
+
+| Parameter | Type | Default | Description |
+| --- | --- | --- | --- |
+| field_data | JSON-encoded Hash | | Sorry, the form schema is not yet documented. |
+
+## Delete a field from the form
+
+Deletes a single field from the project's form.
+
+```shell
+curl "https://screendoor.dobt.co/api/projects/2/form/fields/ak01k23k?v=0&api_key=d9763djh1274" \
+  -X DELETE
+
+# Example Response
+Status: 204 No Content
+```
+
+### HTTP Request
+
+`DELETE /projects/:project_id/form/fields/:id`
