@@ -63,7 +63,7 @@
 </thead><tbody>
 <tr>
 <td>field_data</td>
-<td>JSON-encoded Hash</td>
+<td>JSON-encoded Array</td>
 <td></td>
 <td>Sorry, the form schema is not yet documented.</td>
 </tr>
