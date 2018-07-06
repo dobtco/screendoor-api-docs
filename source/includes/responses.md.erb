@@ -100,7 +100,7 @@ curl "https://screendoor.dobt.co/api/projects/2/responses/3?v=0&api_key=d9763djh
 
 ### Response Data
 
-The `submission_source` field contains information on where the response was submitted from. `submission.type` will be one of:
+The `submission_source` field contains information on where the response was submitted from. `submission.type` will be one of the following:
 
 - `"unknown"`
 - `"frontend"`
@@ -109,9 +109,9 @@ The `submission_source` field contains information on where the response was sub
 - `"email"`
 - `"imported"`
 
-`submission.hostname` will be:
+`submission.hostname` will be one of the following:
 
-- the forms domain (forms.fm) when `type` is `"frontend"`
+- the Screendoor forms domain (forms.fm) when `type` is `"frontend"`
 - the hostname of the page the form is embedded on when `type` is `"embedded"`
 - `null` for other types or when we don't have the URL of the embedded form.
 
