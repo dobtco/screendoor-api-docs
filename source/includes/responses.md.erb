@@ -30,6 +30,10 @@ To find the correct parameters, consider using [advanced search](http://help.dob
 
 (Since API keys aren't associated with individual users, you will not be able to use query parameters that refer to "my rating.")
 
+### Response Data
+
+See [Retrieve a single response](#retrieve-a-single-response)
+
 ## Create a response
 
 Creates a response to the specified project.
@@ -93,6 +97,23 @@ curl "https://screendoor.dobt.co/api/projects/2/responses/3?v=0&api_key=d9763djh
 | Parameter | Default | Description |
 | --- | --- | --- |
 | response_format | raw | `raw`, `text`, or `html` |
+
+### Response Data
+
+The `submission_source` field contains information on where the response was submitted from. `submission.type` will be one of the following:
+
+- `"unknown"`
+- `"frontend"`
+- `"admin"`
+- `"embedded"`
+- `"email"`
+- `"imported"`
+
+`submission.hostname` will be one of the following:
+
+- the Screendoor forms domain (forms.fm) when `type` is `"frontend"`
+- the hostname of the page the form is embedded on when `type` is `"embedded"`
+- `null` for other types or when we don't have the URL of the embedded form.
 
 ## Update a response
 
