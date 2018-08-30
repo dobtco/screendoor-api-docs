@@ -30,24 +30,29 @@ jobs:
           name: NPM version
           command: npm version
           background: true
-      - restore_cache:
-          key: screendoor-api-docs-cache-{{ checksum "package.json" }}
-      - run:
-          name: Install dependencies
-          command: npm install
-      - save_cache:
-          key: screendoor-api-docs-cache-{{ checksum "package.json" }}
-          paths:
-            - ./node_modules
+      # https://circleci.com/docs/2.0/caching/
+      # Restore bundle cache
       - restore_cache:
           key: screendoor-api-docs-cache-{{ checksum "Gemfile.lock" }}
       - run:
           name: Bundle install
           command: bundle check || bundle install
+      # Cache bundle
       - save_cache:
           key: screendoor-api-docs-cache-{{ checksum "Gemfile.lock" }}
           paths:
             - ./vendor/bundle
+      # Restore NPM Cache
+      - restore_cache:
+          key: screendoor-api-docs-cache-{{ checksum "package.json" }}
+      - run:
+          name: Install dependencies
+          command: npm install
+      # Cache node modules
+      - save_cache:
+          key: screendoor-api-docs-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
       - run:
           name: Run cibuild test script
           command: script/cibuild
