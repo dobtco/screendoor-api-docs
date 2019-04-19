@@ -1,6 +1,7 @@
 # Overview
 
-Welcome to the Screendoor API documentation. This is a pre-release API, so be aware that it's subject to change at any time. That said, we welcome any questions, comments, or feedback. For now, just send an email to [support@dobt.co](mailto:support@dobt.co) if you'd like to get in touch.
+Welcome to the Screendoor API documentation. We welcome any questions, comments,
+or feedback. Send an email to [support@dobt.co](mailto:support@dobt.co) if you'd like to get in touch.
 
 All of our API endpoints start with `https://screendoor.dobt.co/api/`.
 
@@ -12,7 +13,7 @@ All of our API endpoints start with `https://screendoor.dobt.co/api/`.
 ## Pagination
 
 ```shell
-curl --include "https://screendoor.dobt.co/api/sites/1/projects?page=5&v=0&api_key=d9763djh1274"
+curl --include "https://screendoor.dobt.co/api/sites/1/projects?page=5&v=1&api_key=d9763djh1274"
 
 # Example Response
 HTTP/1.1 200 OK
@@ -31,10 +32,10 @@ You can change the number of records that are returned by adding a `?per_page=` 
 
 ## Versioning
 
-The current API version is **0**.
+The current API version is **1**.
 
-- Specify the API version by setting a `Version: 0` HTTP header
-- Alternatively, use the `?v=0` URL parameter
+- Specify the API version by setting a `Version: 1` HTTP header
+- Alternatively, use the `?v=1` URL parameter
 
 ## API Clients
 
