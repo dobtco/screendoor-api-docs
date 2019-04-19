@@ -5,7 +5,7 @@
 Returns a list of labels belonging to a specified project.
 
 ```shell
-curl "https://screendoor.dobt.co/api/projects/2/labels?v=0&api_key=d9763djh1274"
+curl "https://screendoor.dobt.co/api/projects/2/labels?v=1&api_key=d9763djh1274"
 
 # Example Response
 [
@@ -21,7 +21,7 @@ curl "https://screendoor.dobt.co/api/projects/2/labels?v=0&api_key=d9763djh1274"
 Creates a label for the specified project.
 
 ```shell
-curl "https://screendoor.dobt.co/api/projects/2/labels?v=0&api_key=d9763djh1274" \
+curl "https://screendoor.dobt.co/api/projects/2/labels?v=1&api_key=d9763djh1274" \
   -H 'Content-Type: application/json' \
   -X POST \
   -d '
@@ -51,7 +51,7 @@ curl "https://screendoor.dobt.co/api/projects/2/labels?v=0&api_key=d9763djh1274"
 Retrieves a label by name.
 
 ```shell
-curl "https://screendoor.dobt.co/api/projects/2/labels/Missing%20info?v=0&api_key=d9763djh1274"
+curl "https://screendoor.dobt.co/api/projects/2/labels/Missing%20info?v=1&api_key=d9763djh1274"
 
 # Example Response
 <%= partial 'resources/project_label.json' %>
@@ -66,7 +66,7 @@ curl "https://screendoor.dobt.co/api/projects/2/labels/Missing%20info?v=0&api_ke
 Updates the specified label.
 
 ```shell
-curl "https://screendoor.dobt.co/api/projects/2/labels/ThisIsALabelName?v=0&api_key=d9763djh1274" \
+curl "https://screendoor.dobt.co/api/projects/2/labels/ThisIsALabelName?v=1&api_key=d9763djh1274" \
   -H 'Content-Type: application/json' \
   -X PUT \
   -d '
@@ -88,7 +88,7 @@ curl "https://screendoor.dobt.co/api/projects/2/labels/ThisIsALabelName?v=0&api_
 Deletes a label by name.
 
 ```shell
-curl "https://screendoor.dobt.co/api/projects/2/labels/Missing%20info?v=0&api_key=d9763djh1274" \
+curl "https://screendoor.dobt.co/api/projects/2/labels/Missing%20info?v=1&api_key=d9763djh1274" \
   -H 'Content-Type: application/json' \
   -X DELETE
 
