@@ -1,11 +1,22 @@
 # Project forms
 
-## Show a project's form
+## List a project's forms
 
-Returns the form for the given `project_id`.
+You can see a list of the forms belonging to a specific project.
 
 ```shell
-curl "https://screendoor.dobt.co/api/projects/2/form?v=0&api_key=d9763djh1274"
+curl "https://screendoor.dobt.co/api/projects/2/forms?v=1&api_key=d9763djh1274"
+
+# Example Response
+<%= partial 'resources/forms.json' %>
+```
+
+## Retrieve a single form
+
+Returns a specific form by `id` for the given `project_id`.
+
+```shell
+curl "https://screendoor.dobt.co/api/projects/2/forms/1?v=1&api_key=d9763djh1274"
 
 # Example Response
 <%= partial 'resources/form.json' %>
@@ -13,14 +24,14 @@ curl "https://screendoor.dobt.co/api/projects/2/form?v=0&api_key=d9763djh1274"
 
 ### HTTP Request
 
-`GET /projects/:project_id/form`
+`GET /projects/:project_id/forms/:id`
 
-## Update a project's form
+## Update a form
 
-Updates the project's form.
+Updates the specified form `id` belonging to the given `project_id`.
 
 ```shell
-curl "https://screendoor.dobt.co/api/projects/2/form?v=0&api_key=d9763djh1274" \
+curl "https://screendoor.dobt.co/api/projects/2/forms/1?v=1&api_key=d9763djh1274" \
   -X PUT \
   -d field_data='[
 {
@@ -45,12 +56,14 @@ curl "https://screendoor.dobt.co/api/projects/2/form?v=0&api_key=d9763djh1274" \
 | --- | --- | --- | --- |
 | field_data | JSON-encoded Array | | Sorry, the form schema is not yet documented. |
 
-## Add a field to the form
+## Add a field to the initial form
 
-Adds a single field to the project's form. You can manually specify an `id` in the `field_data` hash, or you can leave it blank to have one created for you.
+Note: This is only available in version 0.
+
+Adds a single field to the project's initial form. You can manually specify an `id` in the `field_data` hash, or you can leave it blank to have one created for you.
 
 ```shell
-curl "https://screendoor.dobt.co/api/projects/2/form/fields?v=0&api_key=d9763djh1274" \
+curl "https://screendoor.dobt.co/api/projects/2/form/fields?v=1&api_key=d9763djh1274" \
   -X POST \
   -d position=0 \
   -d field_data='
@@ -75,9 +88,11 @@ curl "https://screendoor.dobt.co/api/projects/2/form/fields?v=0&api_key=d9763djh
 | field_data | JSON-encoded Hash | | Sorry, the form schema is not yet documented. |
 | position | Integer | | The zero-indexed position where this field should be inserted in the form. By default, it will be inserted as the last field in the form. |
 
-## Update a field in the form
+## Update a field in the initial form
 
-Updates a single field in the project's form.
+Note: This is only available in version 0.
+
+Updates a single field in the project's initial form.
 
 ```shell
 curl "https://screendoor.dobt.co/api/projects/2/form/fields/ak01k23k?v=0&api_key=d9763djh1274" \
@@ -95,7 +110,7 @@ curl "https://screendoor.dobt.co/api/projects/2/form/fields/ak01k23k?v=0&api_key
 
 ### HTTP Request
 
-`PUT /projects/:project_id/form/fields/:id`
+`PUT /projects/:project_id/fields/:id`
 
 ### Options
 
@@ -103,9 +118,11 @@ curl "https://screendoor.dobt.co/api/projects/2/form/fields/ak01k23k?v=0&api_key
 | --- | --- | --- | --- |
 | field_data | JSON-encoded Hash | | Sorry, the form schema is not yet documented. |
 
-## Delete a field from the form
+## Delete a field from the initial form
 
-Deletes a single field from the project's form.
+Note: This is only available in version 0.
+
+Deletes a single field from the project's initial form.
 
 ```shell
 curl "https://screendoor.dobt.co/api/projects/2/form/fields/ak01k23k?v=0&api_key=d9763djh1274" \
