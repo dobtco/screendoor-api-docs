@@ -5,7 +5,7 @@
 Returns a list of responses to a specified project. Note that in order to retrieve the `assignees` or `archived_responses` keys in the returned data, you'll need to use the [single response endpoint](#retrieve-a-single-response).
 
 ```shell
-curl "https://screendoor.dobt.co/api/projects/2/responses?v=0&api_key=d9763djh1274"
+curl "https://screendoor.dobt.co/api/projects/2/responses?v=1&api_key=d9763djh1274"
 
 # Example Response
 [
@@ -39,7 +39,7 @@ See [Retrieve a single response](#retrieve-a-single-response)
 Creates a response to the specified project.
 
 ```shell
-curl "https://screendoor.dobt.co/api/projects/2/responses?v=0&api_key=d9763djh1274" \
+curl "https://screendoor.dobt.co/api/projects/2/responses?v=1&api_key=d9763djh1274" \
   -H 'Content-Type: application/json' \
   -X POST \
   -d '
@@ -82,7 +82,7 @@ curl "https://screendoor.dobt.co/api/projects/2/responses?v=0&api_key=d9763djh12
 Retrieves a response with the given `:response_id`.
 
 ```shell
-curl "https://screendoor.dobt.co/api/projects/2/responses/3?v=0&api_key=d9763djh1274"
+curl "https://screendoor.dobt.co/api/projects/2/responses/3?v=1&api_key=d9763djh1274"
 
 # Example Response
 <%= partial 'resources/response_detailed.json' %>
@@ -120,7 +120,7 @@ The `submission_source` field contains information on where the response was sub
 Updates the specified response.
 
 ```shell
-curl "https://screendoor.dobt.co/api/projects/2/responses/2?v=0&api_key=d9763djh1274" \
+curl "https://screendoor.dobt.co/api/projects/2/responses/2?v=1&api_key=d9763djh1274" \
   -H 'Content-Type: application/json' \
   -X PUT \
   -d '
@@ -155,7 +155,7 @@ curl "https://screendoor.dobt.co/api/projects/2/responses/2?v=0&api_key=d9763djh
 Moves the response with the given `:response_id` to the trash.
 
 ```shell
-curl "https://screendoor.dobt.co/api/projects/2/responses/3?v=0&api_key=d9763djh1274" \
+curl "https://screendoor.dobt.co/api/projects/2/responses/3?v=1&api_key=d9763djh1274" \
   -H 'Content-Type: application/json' \
   -X DELETE
 
@@ -172,7 +172,7 @@ Status: 204 No Content
 Recovers the response with the given `:response_id` from the trash.
 
 ```shell
-curl "https://screendoor.dobt.co/api/projects/2/responses/3/recover?v=0&api_key=d9763djh1274" \
+curl "https://screendoor.dobt.co/api/projects/2/responses/3/recover?v=1&api_key=d9763djh1274" \
   -H 'Content-Type: application/json' \
   -X POST
 
@@ -189,7 +189,7 @@ curl "https://screendoor.dobt.co/api/projects/2/responses/3/recover?v=0&api_key=
 Delete a response forever, skipping the trash.
 
 ```shell
-curl "https://screendoor.dobt.co/api/projects/2/responses/3/delete_forever?v=0&api_key=d9763djh1274" \
+curl "https://screendoor.dobt.co/api/projects/2/responses/3/delete_forever?v=1&api_key=d9763djh1274" \
   -H 'Content-Type: application/json' \
   -X DELETE
 
@@ -230,7 +230,7 @@ In order to encode a response to a Screendoor form, you must use the format defi
 In order to include a file in the [response fields hash](#spec-for-the-response-hash), you must first upload it using the following endpoint.
 
 ```shell
-curl "https://screendoor.dobt.co/api/form_renderer/file?v=0&response_field_id=123" \
+curl "https://screendoor.dobt.co/api/form_renderer/file?v=1&response_field_id=123" \
   -X POST \
   -F "file=@/path/to/file"
 
