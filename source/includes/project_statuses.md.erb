@@ -5,7 +5,7 @@
 Returns a list of statuses belonging to a specified project.
 
 ```shell
-curl "https://screendoor.dobt.co/api/projects/2/statuses?v=0&api_key=d9763djh1274"
+curl "https://screendoor.dobt.co/api/projects/2/statuses?v=1&api_key=d9763djh1274"
 
 # Example Response
 [
@@ -21,7 +21,7 @@ curl "https://screendoor.dobt.co/api/projects/2/statuses?v=0&api_key=d9763djh127
 Creates a status for the specified project.
 
 ```shell
-curl "https://screendoor.dobt.co/api/projects/2/statuses?v=0&api_key=d9763djh1274" \
+curl "https://screendoor.dobt.co/api/projects/2/statuses?v=1&api_key=d9763djh1274" \
   -H 'Content-Type: application/json' \
   -X POST \
   -d '
@@ -49,7 +49,7 @@ curl "https://screendoor.dobt.co/api/projects/2/statuses?v=0&api_key=d9763djh127
 Retrieves a status by name.
 
 ```shell
-curl "https://screendoor.dobt.co/api/projects/2/statuses/Open?v=0&api_key=d9763djh1274"
+curl "https://screendoor.dobt.co/api/projects/2/statuses/Open?v=1&api_key=d9763djh1274"
 
 # Example Response
 <%= partial 'resources/status.json' %>
@@ -64,7 +64,7 @@ curl "https://screendoor.dobt.co/api/projects/2/statuses/Open?v=0&api_key=d9763d
 Updates the specified status.
 
 ```shell
-curl "https://screendoor.dobt.co/api/projects/2/statuses/ThisIsAStatusName?v=0&api_key=d9763djh1274" \
+curl "https://screendoor.dobt.co/api/projects/2/statuses/ThisIsAStatusName?v=1&api_key=d9763djh1274" \
   -H 'Content-Type: application/json' \
   -X PUT \
   -d '
@@ -86,7 +86,7 @@ curl "https://screendoor.dobt.co/api/projects/2/statuses/ThisIsAStatusName?v=0&a
 Sets a new sort order for a project's statuses.
 
 ```shell
-curl "https://screendoor.dobt.co/api/projects/2/statuses/reorder?v=0&api_key=d9763djh1274" \
+curl "https://screendoor.dobt.co/api/projects/2/statuses/reorder?v=1&api_key=d9763djh1274" \
   -H 'Content-Type: application/json' \
   -X POST \
   -d '
@@ -117,7 +117,7 @@ curl "https://screendoor.dobt.co/api/projects/2/statuses/reorder?v=0&api_key=d97
 Deletes a status by name. Will return a `400 Bad Request` if you try to delete the only status for a project.
 
 ```shell
-curl "https://screendoor.dobt.co/api/projects/2/statuses/Open?v=0&api_key=d9763djh1274" \
+curl "https://screendoor.dobt.co/api/projects/2/statuses/Open?v=1&api_key=d9763djh1274" \
   -H 'Content-Type: application/json' \
   -X DELETE
 
