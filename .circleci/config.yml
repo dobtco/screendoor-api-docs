@@ -79,7 +79,7 @@ jobs:
           key: screendoor-api-docs-cache-{{ checksum "package.json" }}
       - run:
           name: Install grunt-cli
-          command: npm install -g grunt-cli
+          command: npm install grunt-cli
       - run:
           name: Install dependencies
           command: npm install
