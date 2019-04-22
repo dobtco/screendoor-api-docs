@@ -67,7 +67,22 @@ jobs:
   deploy_production:
     docker:
       - image: docker:stable-git
+    working_directory: ~/dobtco/screendoor-api-docs
     steps:
+      - checkout
+      - restore_cache:
+          key: screendoor-api-docs-cache-{{ checksum "Gemfile.lock" }}
+      - run:
+          name: Bundle install
+          command: bundle check || bundle install
+      - restore_cache:
+          key: screendoor-api-docs-cache-{{ checksum "package.json" }}
+      - run:
+          name: Install grunt-cli
+          command: npm install grunt-cli
+      - run:
+          name: Install dependencies
+          command: npm install
       - run:
           name: Deploy
           command: |
