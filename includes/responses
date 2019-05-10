@@ -3,7 +3,7 @@
 <h2 id="list-a-project-39-s-responses">List a project&rsquo;s responses</h2>
 
 <p>Returns a list of responses to a specified project. Note that in order to retrieve the <code class="prettyprint">assignees</code> or <code class="prettyprint">archived_responses</code> keys in the returned data, you&rsquo;ll need to use the <a href="#retrieve-a-single-response">single response endpoint</a>.</p>
-<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/responses?v=0&amp;api_key=d9763djh1274"</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/responses?v=1&amp;api_key=d9763djh1274"</span>
 
 <span class="c"># Example Response</span>
 <span class="o">[</span>
@@ -11,6 +11,8 @@
   <span class="s2">"id"</span>: 3,
   <span class="s2">"sequential_id"</span>: 3,
   <span class="s2">"project_id"</span>: 2,
+  <span class="s2">"form_id"</span>: 1,
+  <span class="s2">"initial_form_id"</span>: null,
   <span class="s2">"pretty_id"</span>: <span class="s2">"ykylz0kz293b"</span>,
   <span class="s2">"submitted_at"</span>: <span class="s2">"2014-05-07T19:19:43.230Z"</span>,
   <span class="s2">"responses"</span>: <span class="o">{</span>
@@ -78,8 +80,8 @@
 
 <h2 id="create-a-response">Create a response</h2>
 
-<p>Creates a response to the specified project.</p>
-<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/responses?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
+<p>Creates a response to the specified project&rsquo;s initial form.</p>
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/responses?v=1&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -X POST <span class="se">\</span>
   -d <span class="s1">'
@@ -103,6 +105,8 @@
   <span class="s2">"id"</span>: 3,
   <span class="s2">"sequential_id"</span>: 3,
   <span class="s2">"project_id"</span>: 2,
+  <span class="s2">"form_id"</span>: 1,
+  <span class="s2">"initial_form_id"</span>: null,
   <span class="s2">"pretty_id"</span>: <span class="s2">"ykylz0kz293b"</span>,
   <span class="s2">"submitted_at"</span>: <span class="s2">"2014-05-07T19:19:43.230Z"</span>,
   <span class="s2">"responses"</span>: <span class="o">{</span>
@@ -183,13 +187,15 @@
 <h2 id="retrieve-a-single-response">Retrieve a single response</h2>
 
 <p>Retrieves a response with the given <code class="prettyprint">:response_id</code>.</p>
-<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/responses/3?v=0&amp;api_key=d9763djh1274"</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/responses/3?v=1&amp;api_key=d9763djh1274"</span>
 
 <span class="c"># Example Response</span>
 <span class="o">{</span>
   <span class="s2">"id"</span>: 3,
   <span class="s2">"sequential_id"</span>: 3,
   <span class="s2">"project_id"</span>: 2,
+  <span class="s2">"form_id"</span>: 1,
+  <span class="s2">"initial_form_id"</span>: null,
   <span class="s2">"pretty_id"</span>: <span class="s2">"ykylz0kz293b"</span>,
   <span class="s2">"submitted_at"</span>: <span class="s2">"2014-05-07T19:19:43.230Z"</span>,
   <span class="s2">"responses"</span>: <span class="o">{</span>
@@ -278,7 +284,7 @@
 <h2 id="update-a-response">Update a response</h2>
 
 <p>Updates the specified response.</p>
-<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/responses/2?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/responses/2?v=1&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -X PUT <span class="se">\</span>
   -d <span class="s1">'
@@ -296,6 +302,8 @@
   <span class="s2">"id"</span>: 3,
   <span class="s2">"sequential_id"</span>: 3,
   <span class="s2">"project_id"</span>: 2,
+  <span class="s2">"form_id"</span>: 1,
+  <span class="s2">"initial_form_id"</span>: null,
   <span class="s2">"pretty_id"</span>: <span class="s2">"ykylz0kz293b"</span>,
   <span class="s2">"submitted_at"</span>: <span class="s2">"2014-05-07T19:19:43.230Z"</span>,
   <span class="s2">"responses"</span>: <span class="o">{</span>
@@ -364,7 +372,7 @@
 <h2 id="delete-a-response">Delete a response</h2>
 
 <p>Moves the response with the given <code class="prettyprint">:response_id</code> to the trash.</p>
-<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/responses/3?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/responses/3?v=1&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -X DELETE
 
@@ -379,7 +387,7 @@ Status: 204 No Content
 <h2 id="recover-a-response">Recover a response</h2>
 
 <p>Recovers the response with the given <code class="prettyprint">:response_id</code> from the trash.</p>
-<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/responses/3/recover?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/responses/3/recover?v=1&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -X POST
 
@@ -388,6 +396,8 @@ Status: 204 No Content
   <span class="s2">"id"</span>: 3,
   <span class="s2">"sequential_id"</span>: 3,
   <span class="s2">"project_id"</span>: 2,
+  <span class="s2">"form_id"</span>: 1,
+  <span class="s2">"initial_form_id"</span>: null,
   <span class="s2">"pretty_id"</span>: <span class="s2">"ykylz0kz293b"</span>,
   <span class="s2">"submitted_at"</span>: <span class="s2">"2014-05-07T19:19:43.230Z"</span>,
   <span class="s2">"responses"</span>: <span class="o">{</span>
@@ -420,7 +430,7 @@ Status: 204 No Content
 <h2 id="permanently-destroy-a-response">Permanently destroy a response</h2>
 
 <p>Delete a response forever, skipping the trash.</p>
-<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/responses/3/delete_forever?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/responses/3/delete_forever?v=1&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -X DELETE
 
@@ -515,7 +525,7 @@ Status: 204 No Content
 <h2 id="uploading-files">Uploading files</h2>
 
 <p>In order to include a file in the <a href="#spec-for-the-response-hash">response fields hash</a>, you must first upload it using the following endpoint.</p>
-<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/form_renderer/file?v=0&amp;response_field_id=123"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/form_renderer/file?v=1&amp;response_field_id=123"</span> <span class="se">\</span>
   -X POST <span class="se">\</span>
   -F <span class="s2">"file=@/path/to/file"</span>
 

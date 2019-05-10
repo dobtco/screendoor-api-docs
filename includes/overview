@@ -1,6 +1,7 @@
 <h1 id="overview">Overview</h1>
 
-<p>Welcome to the Screendoor API documentation. This is a pre-release API, so be aware that it&rsquo;s subject to change at any time. That said, we welcome any questions, comments, or feedback. For now, just send an email to <a href="mailto:support@dobt.co">support@dobt.co</a> if you&rsquo;d like to get in touch.</p>
+<p>Welcome to the Screendoor API documentation. We welcome any questions, comments,
+or feedback. Send an email to <a href="mailto:support@dobt.co">support@dobt.co</a> if you&rsquo;d like to get in touch.</p>
 
 <p>All of our API endpoints start with <code class="prettyprint">https://screendoor.dobt.co/api/</code>.</p>
 
@@ -12,7 +13,7 @@
 </ul>
 
 <h2 id="pagination">Pagination</h2>
-<pre class="highlight shell"><code>curl --include <span class="s2">"https://screendoor.dobt.co/api/sites/1/projects?page=5&amp;v=0&amp;api_key=d9763djh1274"</span>
+<pre class="highlight shell"><code>curl --include <span class="s2">"https://screendoor.dobt.co/api/sites/1/projects?page=5&amp;v=1&amp;api_key=d9763djh1274"</span>
 
 <span class="c"># Example Response</span>
 HTTP/1.1 200 OK
@@ -31,11 +32,11 @@ Total: 4321
 
 <h2 id="versioning">Versioning</h2>
 
-<p>The current API version is <strong>0</strong>.</p>
+<p>The current API version is <strong>1</strong>.</p>
 
 <ul>
-<li>Specify the API version by setting a <code class="prettyprint">Version: 0</code> HTTP header</li>
-<li>Alternatively, use the <code class="prettyprint">?v=0</code> URL parameter</li>
+<li>Specify the API version by using the <code class="prettyprint">?v=1</code> URL parameter</li>
+<li>Alternatively, set a <code class="prettyprint">Api-Version: 1</code> HTTP header</li>
 </ul>
 
 <h2 id="api-clients">API Clients</h2>

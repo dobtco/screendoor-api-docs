@@ -1,4 +1,5 @@
 {
+  "id": "1",
 	"field_data": [
 	  {
 	    "id": "ak01k23k",
@@ -6,5 +7,7 @@
 	    "field_type": "paragraph",
 	    "label": "Your Strategy"
 	  }
-	]
+	],
+  "name": "My First Form",
+  "description": "The initial form for my project."
 }

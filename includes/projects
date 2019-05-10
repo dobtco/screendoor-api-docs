@@ -3,7 +3,7 @@
 <h2 id="list-a-site-39-s-projects">List a site&rsquo;s projects</h2>
 
 <p>You can see a list of the projects belonging to a specific site.</p>
-<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/sites/1/projects?v=0&amp;api_key=d9763djh1274"</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/sites/1/projects?v=1&amp;api_key=d9763djh1274"</span>
 
 <span class="c"># Example Response</span>
 <span class="o">[</span>
@@ -44,7 +44,7 @@
 <h2 id="create-a-project">Create a project</h2>
 
 <p>Creates a new project.</p>
-<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/sites/1/projects?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/sites/1/projects?v=1&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -X POST <span class="se">\</span>
   -d <span class="s1">'
@@ -92,7 +92,7 @@
 <h2 id="retrieve-a-single-project">Retrieve a single project</h2>
 
 <p>Retrieves the details of a specified project.</p>
-<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/sites/1/projects/1?v=0&amp;api_key=d9763djh1274"</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/sites/1/projects/1?v=1&amp;api_key=d9763djh1274"</span>
 
 <span class="c"># Example Response</span>
 <span class="o">{</span>
@@ -132,7 +132,7 @@
 <h2 id="update-a-project">Update a project</h2>
 
 <p>Updates the specified project by assigning values to the keys of the <code class="prettyprint">Project</code> hash. The values of any keys you do not provide will be left unchanged.</p>
-<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/sites/1/projects/1?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/sites/1/projects/1?v=1&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -X PUT <span class="se">\</span>
   -d <span class="s1">'
@@ -180,7 +180,7 @@
 <h2 id="delete-a-project">Delete a project</h2>
 
 <p>Deletes a project.</p>
-<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/sites/1/projects/1?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/sites/1/projects/1?v=1&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -X DELETE
 

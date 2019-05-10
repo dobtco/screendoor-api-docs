@@ -3,7 +3,7 @@
 <h2 id="list-a-project-39-s-statuses">List a project&rsquo;s statuses</h2>
 
 <p>Returns a list of statuses belonging to a specified project.</p>
-<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/statuses?v=0&amp;api_key=d9763djh1274"</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/statuses?v=1&amp;api_key=d9763djh1274"</span>
 
 <span class="c"># Example Response</span>
 <span class="o">[</span>
@@ -21,7 +21,7 @@
 <h2 id="create-a-status">Create a status</h2>
 
 <p>Creates a status for the specified project.</p>
-<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/statuses?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/statuses?v=1&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -X POST <span class="se">\</span>
   -d <span class="s1">'
@@ -63,7 +63,7 @@
 <h2 id="retrieve-a-single-status">Retrieve a single status</h2>
 
 <p>Retrieves a status by name.</p>
-<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/statuses/Open?v=0&amp;api_key=d9763djh1274"</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/statuses/Open?v=1&amp;api_key=d9763djh1274"</span>
 
 <span class="c"># Example Response</span>
 <span class="o">{</span>
@@ -80,7 +80,7 @@
 <h2 id="update-a-status">Update a status</h2>
 
 <p>Updates the specified status.</p>
-<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/statuses/ThisIsAStatusName?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/statuses/ThisIsAStatusName?v=1&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -X PUT <span class="se">\</span>
   -d <span class="s1">'
@@ -104,7 +104,7 @@
 <h2 id="reorder-statuses">Reorder statuses</h2>
 
 <p>Sets a new sort order for a project&rsquo;s statuses.</p>
-<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/statuses/reorder?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/statuses/reorder?v=1&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -X POST <span class="se">\</span>
   -d <span class="s1">'
@@ -133,7 +133,7 @@
 <h2 id="delete-a-status">Delete a status</h2>
 
 <p>Deletes a status by name. Will return a <code class="prettyprint">400 Bad Request</code> if you try to delete the only status for a project.</p>
-<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/statuses/Open?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/statuses/Open?v=1&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -X DELETE
 

@@ -3,7 +3,7 @@
 <h2 id="list-a-project-39-s-labels">List a project&rsquo;s labels</h2>
 
 <p>Returns a list of labels belonging to a specified project.</p>
-<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/labels?v=0&amp;api_key=d9763djh1274"</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/labels?v=1&amp;api_key=d9763djh1274"</span>
 
 <span class="c"># Example Response</span>
 <span class="o">[</span>
@@ -22,7 +22,7 @@
 <h2 id="create-a-label">Create a label</h2>
 
 <p>Creates a label for the specified project.</p>
-<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/labels?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/labels?v=1&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -X POST <span class="se">\</span>
   -d <span class="s1">'
@@ -72,7 +72,7 @@
 <h2 id="retrieve-a-single-label">Retrieve a single label</h2>
 
 <p>Retrieves a label by name.</p>
-<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/labels/Missing%20info?v=0&amp;api_key=d9763djh1274"</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/labels/Missing%20info?v=1&amp;api_key=d9763djh1274"</span>
 
 <span class="c"># Example Response</span>
 <span class="o">{</span>
@@ -90,7 +90,7 @@
 <h2 id="update-a-label">Update a label</h2>
 
 <p>Updates the specified label.</p>
-<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/labels/ThisIsALabelName?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/labels/ThisIsALabelName?v=1&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -X PUT <span class="se">\</span>
   -d <span class="s1">'
@@ -115,7 +115,7 @@
 <h2 id="delete-a-label">Delete a label</h2>
 
 <p>Deletes a label by name.</p>
-<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/labels/Missing%20info?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/labels/Missing%20info?v=1&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -X DELETE
 
