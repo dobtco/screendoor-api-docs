@@ -34,8 +34,8 @@ You can change the number of records that are returned by adding a `?per_page=` 
 
 The current API version is **1**.
 
-- Specify the API version by setting a `Version: 1` HTTP header
-- Alternatively, use the `?v=1` URL parameter
+- Specify the API version by using the `?v=1` URL parameter
+- Alternatively, set a `Api-Version: 1` HTTP header
 
 ## API Clients
 

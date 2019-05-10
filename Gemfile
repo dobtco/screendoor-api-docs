@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 # Middleman
+gem 'json', '~>1.8.5'
 gem 'middleman', '~>4.0.0'
 gem 'middleman-gh-pages', '~> 0.0.3'
 gem 'middleman-syntax', '~> 2.1.0'
