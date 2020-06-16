@@ -1,6 +1,4 @@
-<h1 id="response-labels-deprecated">Response labels (deprecated)</h1>
-
-<p><em>Note: Access to the response label API is only available in version 0.</em></p>
+<h1 id="response-labels">Response labels</h1>
 
 <h2 id="list-a-responses-39-labels">List a responses&rsquo; labels</h2>
 

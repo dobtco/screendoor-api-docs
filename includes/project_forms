@@ -118,9 +118,7 @@
 </tr>
 </tbody></table>
 
-<h2 id="add-a-field-to-the-initial-form-deprecated">Add a field to the initial form (deprecated)</h2>
-
-<p><em>Note: This is only available in version 0.</em></p>
+<h2 id="add-a-field-to-the-initial-form">Add a field to the initial form</h2>
 
 <p>Adds a single field to the project&rsquo;s initial form. You can manually specify an <code class="prettyprint">id</code> in the <code class="prettyprint">field_data</code> hash, or you can leave it blank to have one created for you.</p>
 <pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/form/fields?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
@@ -178,9 +176,7 @@
 </tr>
 </tbody></table>
 
-<h2 id="update-a-field-in-the-initial-form-deprecated">Update a field in the initial form (deprecated)</h2>
-
-<p><em>Note: This is only available in version 0.</em></p>
+<h2 id="update-a-field-in-the-initial-form">Update a field in the initial form</h2>
 
 <p>Updates a single field in the project&rsquo;s initial form.</p>
 <pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/form/fields/ak01k23k?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>
@@ -231,9 +227,7 @@
 </tr>
 </tbody></table>
 
-<h2 id="delete-a-field-from-the-initial-form-deprecated">Delete a field from the initial form (deprecated)</h2>
-
-<p><em>Note: This is only available in version 0.</em></p>
+<h2 id="delete-a-field-from-the-initial-form">Delete a field from the initial form</h2>
 
 <p>Deletes a single field from the project&rsquo;s initial form.</p>
 <pre class="highlight shell"><code>curl <span class="s2">"https://screendoor.dobt.co/api/projects/2/form/fields/ak01k23k?v=0&amp;api_key=d9763djh1274"</span> <span class="se">\</span>

@@ -1,6 +1,4 @@
-<h1 id="response-assignments-deprecated">Response assignments (deprecated)</h1>
-
-<p><em>Note: Access to the response assignment API is only available in version 0.</em></p>
+<h1 id="response-assignments">Response assignments</h1>
 
 <p>A response can be assigned to many teams and/or users. An &ldquo;assignment parameter&rdquo; takes the format of <code class="prettyprint">:type,:id</code>, where type is either <code class="prettyprint">ProjectTeam</code> or <code class="prettyprint">User</code>, and <code class="prettyprint">id</code> is the identifier for that record.</p>
 
