@@ -1,6 +1,6 @@
 ## Screendoor API Docs
 
-See http://dobtco.github.io/screendoor-api-docs/ for the live site.
+See https://dobtco.github.io/screendoor-api-docs/ for the live site.
 
 ### Development
 
