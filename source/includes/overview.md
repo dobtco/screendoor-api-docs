@@ -1,7 +1,7 @@
 # Overview
 
 Welcome to the Screendoor API documentation. We welcome any questions, comments,
-or feedback. Send an email to [support@dobt.co](mailto:support@dobt.co) if you'd like to get in touch.
+or feedback. Send an email to [support@thecitybase.com](mailto:support@thecitybase.com) if you'd like to get in touch.
 
 All of our API endpoints start with `https://screendoor.dobt.co/api/`.
 
