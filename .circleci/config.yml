@@ -68,9 +68,6 @@ jobs:
     docker:
       - image: circleci/ruby:2.3.7-node-browsers
     working_directory: ~/dobtco/screendoor-api-docs
-    dependencies:
-      pre:
-        - npm install grunt-cli
     steps:
       - checkout
       - restore_cache:
@@ -81,6 +78,9 @@ jobs:
       - restore_cache:
           key: screendoor-api-docs-cache-{{ checksum "package.json" }}
       - run:
+          name: Install grunt-cli
+          command: npm install grunt-cli
+      - run:
           name: Install dependencies
           command: npm install
       - run:
@@ -88,7 +88,7 @@ jobs:
           command: |
             git config --global user.email "ops@dobt.co"
             git config --global user.name "CircleCI"
-            grunt deploy:production
+            script/deploy
 workflows:
   version: 2
   build_and_maybe_deploy:
