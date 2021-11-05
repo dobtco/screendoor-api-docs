@@ -1,11 +1,12 @@
 {
   "name": "screendoor-api-docs",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "main": "index.js",
   "scripts": {
     "test": "npm run preview && sleep 10 && npm run check-links",
     "preview": "bundle exec middleman server &",
-    "check-links": "grunt link-checker:dev"
+    "check-links": "grunt link-checker:dev",
+    "deploy": "grunt deploy:production"
   },
   "homepage": "https://github.com/dobtco/screendoor-api-docs",
   "devDependencies": {
